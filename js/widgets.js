@@ -183,47 +183,71 @@
 
   /* ---------------- 6. notebook quality toggle ---------------- */
   function notebook(root) {
-    const plot = `<svg viewBox="0 0 260 130"><rect width="260" height="130" fill="#fff"/>
-      <line x1="40" y1="10" x2="40" y2="110" stroke="#333"/><line x1="40" y1="110" x2="250" y2="110" stroke="#333"/>
-      <polyline points="45,100 90,70 135,78 180,40 245,25" fill="none" stroke="#D2603A" stroke-width="2.5"/>
-      <text x="145" y="126" text-anchor="middle" font-family="Inter" font-size="9" fill="#333">time (s)</text>
-      <text x="12" y="60" font-family="Inter" font-size="9" fill="#333" transform="rotate(-90 12 60)">signal (mV)</text>
-      <text x="145" y="9" text-anchor="middle" font-family="Inter" font-size="9" font-weight="700" fill="#333">EMG amplitude over time</text></svg>`;
+    // high-quality: labeled penguin scatter, colored by species-ish clusters
+    const plotHI = `<svg viewBox="0 0 240 150"><rect width="240" height="150" fill="#fff"/>
+      <text x="140" y="12" text-anchor="middle" font-family="Inter" font-size="8" font-weight="700" fill="#333">Penguin Bill Length vs Bill Depth</text>
+      <line x1="44" y1="20" x2="44" y2="118" stroke="#333"/><line x1="44" y1="118" x2="232" y2="118" stroke="#333"/>
+      <g fill="#3776AB"><circle cx="66" cy="46" r="3"/><circle cx="74" cy="38" r="3"/><circle cx="82" cy="52" r="3"/><circle cx="90" cy="44" r="3"/><circle cx="72" cy="58" r="3"/></g>
+      <g fill="#2E7D6B"><circle cx="120" cy="52" r="3"/><circle cx="132" cy="46" r="3"/><circle cx="126" cy="64" r="3"/><circle cx="140" cy="58" r="3"/></g>
+      <g fill="#D2603A"><circle cx="168" cy="74" r="3"/><circle cx="182" cy="88" r="3"/><circle cx="176" cy="70" r="3"/><circle cx="196" cy="92" r="3"/><circle cx="206" cy="82" r="3"/></g>
+      <text x="140" y="140" text-anchor="middle" font-family="Inter" font-size="7.5" fill="#333">Bill Length (mm)</text>
+      <text x="13" y="70" text-anchor="middle" font-family="Inter" font-size="7.5" fill="#333" transform="rotate(-90 13 70)">Bill Depth (mm)</text></svg>`;
+
+    // low-quality: unlabeled scatter, no title/axes labels
+    const plotLO = `<svg viewBox="0 0 240 120"><rect width="240" height="120" fill="#fff"/>
+      <line x1="30" y1="10" x2="30" y2="102" stroke="#333"/><line x1="30" y1="102" x2="232" y2="102" stroke="#333"/>
+      <g fill="#5b6470"><circle cx="52" cy="92" r="2.6"/><circle cx="74" cy="80" r="2.6"/><circle cx="90" cy="86" r="2.6"/><circle cx="108" cy="70" r="2.6"/><circle cx="126" cy="78" r="2.6"/><circle cx="146" cy="60" r="2.6"/><circle cx="164" cy="66" r="2.6"/><circle cx="184" cy="50" r="2.6"/><circle cx="202" cy="58" r="2.6"/><circle cx="216" cy="42" r="2.6"/></g></svg>`;
 
     const HI = `
       <div class="nb">
         <div class="nb-cell"><div class="nb-gutter">md</div><div class="nb-body nb-md">
-          <h4>Fatigue analysis of EMG signal</h4>
-          <p><b>Goal:</b> measure how the signal amplitude changes as the muscle fatigues.</p></div></div>
+          <h4># Intro to Jupyter Notebooks: Best Practices</h4>
+          <p><b>Author:</b> Sarah Groves · <b>Goal:</b> a clear report that tells a story.</p>
+          <p style="color:#777"><b>GenAI statement:</b> example code assisted by ChatGPT-4 (Jan 2026).</p></div></div>
         <div class="nb-cell"><div class="nb-gutter">[1]</div><div class="nb-body">
-          <div class="nb-code">from analysis import load_emg, rms_envelope
-signal, t = load_emg("trial_03.csv")
-env = rms_envelope(signal)</div></div></div>
+          <div class="nb-code">import pandas as pd
+import matplotlib.pyplot as plt
+df = pd.read_csv(".../penguins.csv")
+df.head()          # not the whole dataset!</div>
+          <div class="nb-out">  species     island  bill_length_mm  bill_depth_mm
+0  Adelie  Torgersen            39.1           18.7
+1  Adelie  Torgersen            39.5           17.4</div></div></div>
         <div class="nb-cell"><div class="nb-gutter">[2]</div><div class="nb-body">
-          <div class="nb-code">plt.plot(t, env); plt.title("EMG amplitude over time")
-plt.xlabel("time (s)"); plt.ylabel("signal (mV)")   # envelope rises → fatigue</div>
-          <div class="nb-plot">${plot}</div></div></div>
-        <div class="nb-cell"><div class="nb-gutter">[3]</div><div class="nb-body">
-          <div class="nb-code">print("Correlation with time:", round(corr, 3))</div>
-          <div class="nb-out">Correlation with time: 0.912</div></div></div>
+          <div class="nb-code">plt.scatter(df.bill_length_mm, df.bill_depth_mm, alpha=0.7)
+plt.xlabel("Bill Length (mm)"); plt.ylabel("Bill Depth (mm)")
+plt.title("Penguin Bill Length vs Bill Depth"); plt.show()</div>
+          <div class="nb-plot">${plotHI}</div></div></div>
+        <div class="nb-cell"><div class="nb-gutter">md</div><div class="nb-body nb-md">
+          <div style="background:#e6f4ea;border:1px solid #b7dfc4;border-radius:6px;padding:0.35em 0.6em;color:#1e6b3a">
+            <b>Conclusions:</b> distinct groups appear — could penguin <i>species</i> explain the difference?</div></div></div>
       </div>`;
 
     const LO = `
       <div class="nb">
+        <div class="nb-cell"><div class="nb-gutter">md</div><div class="nb-body nb-md">
+          <h4>notebook template</h4><p>stuff with data</p></div></div>
         <div class="nb-cell"><div class="nb-gutter">[1]</div><div class="nb-body">
-          <div class="nb-code">import pandas as pd, numpy as np, matplotlib.pyplot as plt
-d=pd.read_csv("trial_03.csv");s=d.iloc[:,1].values;t=d.iloc[:,0].values
-w=50;env=np.array([np.sqrt(np.mean(s[i:i+w]**2)) for i in range(len(s)-w)])
-plt.plot(env)
-print(d)
-c=np.corrcoef(np.arange(len(env)),env)[0,1];print(c)</div>
-          <div class="nb-out ugly">      time   signal
-0     0.000    0.012
-1     0.001   -0.004
-2     0.002    0.031
-3     0.003    0.008
-...   (2000 more rows) ...</div>
-          <div class="nb-out">0.9117834...</div></div></div>
+          <div class="nb-code">import pandas as pd
+import matplotlib.pyplot as plt
+df = pd.read_csv("tips.csv")
+print(df)</div>
+          <div class="nb-out ugly">     total_bill   tip     sex smoker   day    time  size
+0         16.99  1.01  Female     No   Sun  Dinner     2
+1         10.34  1.66    Male     No   Sun  Dinner     3
+2         21.01  3.50    Male     No   Sun  Dinner     3
+..          ...   ...     ...    ...   ...     ...   ...
+[244 rows x 7 columns]</div></div></div>
+        <div class="nb-cell"><div class="nb-gutter">[2]</div><div class="nb-body">
+          <div class="nb-code"># scatter maybe
+plt.scatter(df['total_bill'], df['tip'])
+plt.show()</div>
+          <div class="nb-plot">${plotLO}</div></div></div>
+        <div class="nb-cell"><div class="nb-gutter">[3]</div><div class="nb-body">
+          <div class="nb-code">print(df.head(100))</div>
+          <div class="nb-out ugly">    total_bill   tip     sex smoker  day    time  size
+0        16.99  1.01  Female     No  Sun  Dinner     2
+..         ...   ...     ...    ...  ...     ...   ...
+[100 rows x 7 columns]</div></div></div>
       </div>`;
 
     root.innerHTML = `
