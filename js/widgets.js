@@ -241,6 +241,96 @@ c=np.corrcoef(np.arange(len(env)),env)[0,1];print(c)</div>
     holder.innerHTML = HI;
   }
 
+  /* ---------------- two-partner collaboration + merge conflict ---------------- */
+  function partnerflow(root) {
+    const BASE = 5, NEWVAL = { you: 8, part: 10 }, label = { you: "You", part: "Partner" };
+    let st, hist = [];
+    const fresh = () => ({
+      remoteVal: BASE, remoteVer: 1,
+      you:  { val: BASE, syncedVal: BASE, syncedVer: 1, committed: false, conflict: false },
+      part: { val: BASE, syncedVal: BASE, syncedVer: 1, committed: false, conflict: false },
+    });
+    const A = k => st[k];
+
+    root.innerHTML = `
+      <div class="pf-cols">
+        <div class="pf-col"><h4>💻 You</h4><div class="pf-file"></div><div class="pf-status"></div></div>
+        <div class="pf-col remote"><h4>☁️ GitHub (remote)</h4><div class="pf-file"></div><div class="pf-status"></div></div>
+        <div class="pf-col"><h4>👩‍💻 Partner</h4><div class="pf-file"></div><div class="pf-status"></div></div>
+      </div>
+      <div class="pf-btns"><span class="who">You 💻</span>
+        <button class="you" data-k="you" data-a="edit">✏️ edit</button>
+        <button class="you" data-k="you" data-a="commit">💾 commit</button>
+        <button class="you" data-k="you" data-a="push">⬆️ push</button>
+        <button class="you" data-k="you" data-a="pull">🔄 pull</button>
+        <button class="resolve" data-k="you" data-a="resolve" hidden>🔧 resolve</button></div>
+      <div class="pf-btns"><span class="who">Partner 👩‍💻</span>
+        <button class="part" data-k="part" data-a="edit">✏️ edit</button>
+        <button class="part" data-k="part" data-a="commit">💾 commit</button>
+        <button class="part" data-k="part" data-a="push">⬆️ push</button>
+        <button class="part" data-k="part" data-a="pull">🔄 pull</button>
+        <button class="resolve" data-k="part" data-a="resolve" hidden>🔧 resolve</button></div>
+      <div class="pf-btns"><button class="reset" data-a="reset">reset</button></div>
+      <div class="pf-log"></div>`;
+
+    function say(t, cls) { hist.push({ t, cls: cls || "g" }); if (hist.length > 7) hist.shift();
+      const log = root.querySelector(".pf-log"); log.innerHTML = hist.map(h => `<span class="${h.cls}">${h.t}</span>`).join("<br>"); log.scrollTop = log.scrollHeight; }
+
+    const act = {
+      edit(k) { const a = A(k); if (a.conflict) return say("resolve the conflict first", "r"); a.val = NEWVAL[k]; a.committed = false; say(label[k] + " edited the file → threshold = " + a.val, "a"); },
+      commit(k) { const a = A(k); if (a.conflict) return say("resolve the conflict first", "r"); if (a.val === a.syncedVal && !a.committed) return say("nothing to commit", "a"); a.committed = true; say("$ git commit — " + label[k] + " saved locally", "g"); },
+      push(k) { const a = A(k);
+        if (a.conflict) return say("resolve the conflict first", "r");
+        if (!a.committed) return say("nothing to push — commit first", "a");
+        if (a.syncedVer < st.remoteVer) return say("! [rejected] " + label[k] + "'s push — remote has newer commits. pull first.", "r");
+        st.remoteVal = a.val; st.remoteVer++; a.syncedVal = a.val; a.syncedVer = st.remoteVer; a.committed = false;
+        say("$ git push ✓ — " + label[k] + " updated GitHub (threshold = " + st.remoteVal + ")", "g"); },
+      pull(k) { const a = A(k);
+        if (a.conflict) return say("resolve the conflict first", "r");
+        if (a.syncedVer === st.remoteVer) return say(label[k] + " is already up to date", "a");
+        if (a.committed && a.val !== st.remoteVal) { a.conflict = true; return say("$ git pull → MERGE CONFLICT in analysis.py — you both changed the same line!", "r"); }
+        a.val = st.remoteVal; a.syncedVal = st.remoteVal; a.syncedVer = st.remoteVer; a.committed = false;
+        say("$ git pull ✓ — " + label[k] + " merged cleanly (threshold = " + a.val + ")", "g"); },
+      resolve(k) { const a = A(k); if (!a.conflict) return;
+        a.val = st.remoteVal; a.conflict = false; a.committed = true; a.syncedVal = a.val; a.syncedVer = st.remoteVer;
+        say("✔ resolved: kept threshold = " + a.val + " (talk to your partner!) — " + label[k] + " committed the merge", "g"); },
+    };
+
+    function fileBox(k) { const a = A(k);
+      if (a.conflict) return `<span class="cf1">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD (${label[k]})</span>\nthreshold = ${a.val}\n<span class="mid">=======</span>\nthreshold = ${st.remoteVal}\n<span class="cf2">&gt;&gt;&gt;&gt;&gt;&gt;&gt; origin/main</span>`;
+      return `threshold = ${a.val}`;
+    }
+    function statusText(k) { const a = A(k);
+      if (a.conflict) return '<span class="conf">⚠ merge conflict</span>';
+      const behind = a.syncedVer < st.remoteVer;
+      if (a.committed && behind) return '<span class="warn">● commit · behind remote</span>';
+      if (a.committed) return '<span class="warn">● 1 commit to push</span>';
+      if (behind) return '<span class="warn">↓ behind remote</span>';
+      if (a.val !== a.syncedVal) return '<span class="warn">✎ unsaved change</span>';
+      return '<span class="ok">✓ in sync</span>';
+    }
+    function render() {
+      const cols = root.querySelectorAll(".pf-col"), you = cols[0], rem = cols[1], part = cols[2];
+      you.classList.toggle("conflict", st.you.conflict);
+      part.classList.toggle("conflict", st.part.conflict);
+      you.querySelector(".pf-file").innerHTML = fileBox("you");
+      you.querySelector(".pf-status").innerHTML = statusText("you");
+      rem.querySelector(".pf-file").innerHTML = `threshold = ${st.remoteVal}`;
+      rem.querySelector(".pf-status").innerHTML = `<span class="ok">v${st.remoteVer} · latest</span>`;
+      part.querySelector(".pf-file").innerHTML = fileBox("part");
+      part.querySelector(".pf-status").innerHTML = statusText("part");
+      root.querySelector('.resolve[data-k="you"]').hidden = !st.you.conflict;
+      root.querySelector('.resolve[data-k="part"]').hidden = !st.part.conflict;
+    }
+
+    root.addEventListener("click", e => {
+      const b = e.target.closest("button"); if (!b) return;
+      if (b.dataset.a === "reset") { st = fresh(); hist = []; root.querySelector(".pf-log").innerHTML = ""; render(); return; }
+      act[b.dataset.a](b.dataset.k); render();
+    });
+    st = fresh(); render();
+  }
+
   /* ---------------- clickable numbered labels (VS Code / github.com) ---------------- */
   function labelGroup(group) {
     const badges = [...group.querySelectorAll(".vs-badge")];
@@ -262,7 +352,7 @@ c=np.corrcoef(np.arange(len(env)),env)[0,1];print(c)</div>
     });
   }
 
-  const REG = { forloop, pyversion, condaenv, gitflow, branches, notebook };
+  const REG = { forloop, pyversion, condaenv, gitflow, branches, notebook, partnerflow };
 
   function initAll(root) {
     (root || document).querySelectorAll("[data-widget]").forEach(node => {

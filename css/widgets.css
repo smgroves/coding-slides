@@ -323,6 +323,31 @@
 .gitwf .log .g { color:#79d17a; }
 .gitwf .log .a { color:#f0b83a; }
 
+/* ---------- two-partner collaboration + merge conflict ---------- */
+.pf { text-align:center; }
+.pf.widget { background:transparent; border:none; box-shadow:none; padding:0; }
+.pf-cols { display:flex; gap:0.7em; align-items:stretch; }
+.pf-col { flex:1; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:0.55em 0.6em; }
+.pf-col.remote { background:#F1ECFB; border-color:#dcd0f2; }
+.pf-col.conflict { border-color:#c0392b; box-shadow:0 0 0 2px rgba(192,57,43,0.18); }
+.pf-col h4 { font-family:var(--font-body); font-size:0.74em; margin:0 0 0.3em; color:var(--ink); }
+.pf-file { font-family:var(--font-mono); font-size:0.6em; background:#201d1a; color:#D9D0C4; border-radius:8px;
+  padding:0.5em 0.6em; white-space:pre; text-align:left; line-height:1.35; }
+.pf-file .cf1 { color:#ff8a7a; } .pf-file .cf2 { color:#79d17a; } .pf-file .mid { color:#8a827a; }
+.pf-status { font-family:var(--font-mono); font-size:0.56em; margin-top:0.3em; min-height:1.3em; }
+.pf-status .ok { color:var(--teal); } .pf-status .warn { color:var(--accent-dk); } .pf-status .conf { color:#c0392b; font-weight:700; }
+.pf-btns { display:flex; align-items:center; justify-content:center; gap:0.4em; flex-wrap:wrap; margin-top:0.4em; }
+.pf-btns .who { font-family:var(--font-mono); font-size:0.6em; color:var(--muted); width:5.6em; text-align:right; }
+.pf-btns button { font-family:var(--font-mono); font-size:0.6em; cursor:pointer; border:none; color:#fff;
+  padding:0.42em 0.8em; border-radius:7px; font-weight:600; transition:transform .05s, filter .12s; }
+.pf-btns button:hover { filter:brightness(1.08); } .pf-btns button:active { transform:scale(0.96); }
+.pf-btns button:disabled { opacity:0.4; cursor:not-allowed; filter:none; }
+.pf-btns .you { background:var(--teal); } .pf-btns .part { background:#c77dd8; }
+.pf-btns .resolve { background:#c0392b; } .pf-btns .reset { background:#8A8079; }
+.pf-log { font-family:var(--font-mono); font-size:0.56em; text-align:left; background:#201d1a; color:#D9D0C4;
+  border-radius:10px; padding:0.5em 0.8em; margin-top:0.4em; height:2.3em; overflow:auto; }
+.pf-log .g { color:#79d17a; } .pf-log .a { color:#f0b83a; } .pf-log .r { color:#ff8a7a; }
+
 /* ---------- notebook mock ---------- */
 .nb {
   background:#fff; border:1px solid var(--line); border-radius:12px;
