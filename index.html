@@ -59,6 +59,87 @@
       </div>
     </section>
 
+    <!-- ============ BIG PICTURE: THE RESTAURANT ============ -->
+    <section>
+      <span class="tag py" style="background:var(--accent)">the big picture</span>
+      <h3>Everything in its place — one restaurant</h3>
+      <div class="restaurant">
+        <svg viewBox="0 0 1050 560" role="img" aria-label="Coding tools arranged as a restaurant">
+          <defs>
+            <marker id="ahp" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#6E40C9"/></marker>
+            <marker id="ahg" markerWidth="9" markerHeight="9" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="#E3A21A"/></marker>
+          </defs>
+
+          <!-- restaurant building = VS Code -->
+          <rect x="160" y="66" width="700" height="466" rx="22" fill="#FFFFFF" stroke="#D2603A" stroke-width="3"/>
+          <text x="510" y="100" text-anchor="middle" font-family="Inter" font-weight="700" font-size="23" fill="#2B2724">🏠 VS Code — the restaurant</text>
+
+          <!-- Kitchen A (conda env) -->
+          <rect x="185" y="125" width="300" height="175" rx="12" fill="#F6EDE2" stroke="#E7DFD3"/>
+          <text x="200" y="158" font-family="Inter" font-weight="700" font-size="17" fill="#2B2724">🍳 base <tspan font-family="JetBrains Mono" font-weight="400" font-size="12" fill="#8A8079">conda env</tspan></text>
+          <text x="200" y="186" font-family="JetBrains Mono" font-size="14" fill="#2E7D6B">👨‍🍳 Python 3.12 <tspan fill="#8A8079">· the chef</tspan></text>
+          <text x="200" y="212" font-family="Inter" font-size="12" fill="#8A8079">pantry (the packages):</text>
+          <g font-family="JetBrains Mono" font-size="12" fill="#A8461F" text-anchor="middle">
+            <rect x="200" y="220" width="66" height="26" rx="13" fill="#fff" stroke="#E7DFD3"/><text x="233" y="237">numpy</text>
+            <rect x="272" y="220" width="74" height="26" rx="13" fill="#fff" stroke="#E7DFD3"/><text x="309" y="237">pandas</text>
+            <rect x="352" y="220" width="58" height="26" rx="13" fill="#fff" stroke="#E7DFD3"/><text x="381" y="237">scipy</text>
+          </g>
+          <text x="200" y="282" font-family="Inter" font-size="13" font-style="italic" fill="#8A8079">= a kitchen (isolated environment)</text>
+
+          <!-- Kitchen B (conda env) -->
+          <rect x="185" y="320" width="300" height="175" rx="12" fill="#F6EDE2" stroke="#E7DFD3"/>
+          <text x="200" y="353" font-family="Inter" font-weight="700" font-size="17" fill="#2B2724">🍳 myclass <tspan font-family="JetBrains Mono" font-weight="400" font-size="12" fill="#8A8079">conda env</tspan></text>
+          <text x="200" y="381" font-family="JetBrains Mono" font-size="14" fill="#2E7D6B">👨‍🍳 Python 3.11 <tspan fill="#8A8079">· the chef</tspan></text>
+          <text x="200" y="407" font-family="Inter" font-size="12" fill="#8A8079">pantry (the packages):</text>
+          <g font-family="JetBrains Mono" font-size="12" fill="#A8461F" text-anchor="middle">
+            <rect x="200" y="415" width="66" height="26" rx="13" fill="#fff" stroke="#E7DFD3"/><text x="233" y="432">numpy</text>
+            <rect x="272" y="415" width="74" height="26" rx="13" fill="#fff" stroke="#E7DFD3"/><text x="309" y="432">pandas</text>
+            <rect x="352" y="415" width="100" height="26" rx="13" fill="#fff" stroke="#E7DFD3"/><text x="402" y="432">matplotlib</text>
+          </g>
+          <text x="200" y="477" font-family="Inter" font-size="13" font-style="italic" fill="#8A8079">= another kitchen, no ingredient conflicts</text>
+
+          <!-- Recipe (.py file) -->
+          <rect x="520" y="125" width="315" height="150" rx="12" fill="#2B2724"/>
+          <text x="536" y="153" font-family="JetBrains Mono" font-size="15" fill="#F4EEE4">📖 analysis.py</text>
+          <text x="536" y="181" font-family="JetBrains Mono" font-size="13" fill="#79d17a">import numpy as np</text>
+          <text x="536" y="203" font-family="JetBrains Mono" font-size="13" fill="#D9D0C4">data = load("emg.csv")</text>
+          <text x="536" y="225" font-family="JetBrains Mono" font-size="13" fill="#D9D0C4">print(data.mean())</text>
+          <text x="536" y="258" font-family="Inter" font-size="13" font-style="italic" fill="#C9BFB2">= the recipe</text>
+
+          <!-- Terminal -->
+          <rect x="520" y="320" width="315" height="175" rx="12" fill="#17140f"/>
+          <text x="536" y="352" font-family="JetBrains Mono" font-size="15" fill="#F4EEE4">🧾 Terminal</text>
+          <text x="536" y="382" font-family="JetBrains Mono" font-size="13" fill="#79d17a">$ python analysis.py</text>
+          <text x="536" y="406" font-family="JetBrains Mono" font-size="13" fill="#D9D0C4">mean: 4.2</text>
+          <text x="536" y="478" font-family="Inter" font-size="13" font-style="italic" fill="#C9BFB2">= the order counter (place your order)</text>
+
+          <!-- Supplier = Anaconda (fragment) -->
+          <g class="fragment">
+            <rect x="15" y="330" width="130" height="112" rx="12" fill="#E3A21A"/>
+            <text x="80" y="372" text-anchor="middle" font-size="30">🚚</text>
+            <text x="80" y="400" text-anchor="middle" font-family="Inter" font-weight="700" font-size="15" fill="#3a2c00">Anaconda</text>
+            <text x="80" y="320" text-anchor="middle" font-family="Inter" font-size="12" fill="#8A8079">the supplier</text>
+            <line x1="147" y1="410" x2="182" y2="410" stroke="#E3A21A" stroke-width="3" marker-end="url(#ahg)"/>
+            <text x="164" y="400" text-anchor="middle" font-family="Inter" font-size="10" fill="#8A8079">stocks the</text>
+            <text x="164" y="454" text-anchor="middle" font-family="Inter" font-size="10" fill="#8A8079">pantry</text>
+          </g>
+
+          <!-- GitHub cloud (fragment) -->
+          <g class="fragment">
+            <rect x="880" y="250" width="155" height="120" rx="14" fill="#F1ECFB" stroke="#6E40C9" stroke-width="2"/>
+            <text x="957" y="290" text-anchor="middle" font-size="26">☁️</text>
+            <text x="957" y="318" text-anchor="middle" font-family="Inter" font-weight="700" font-size="15" fill="#6E40C9">GitHub</text>
+            <text x="957" y="342" text-anchor="middle" font-family="Inter" font-size="12" fill="#8A8079">shared recipe</text>
+            <text x="957" y="358" text-anchor="middle" font-family="Inter" font-size="12" fill="#8A8079">book (Part 2)</text>
+            <line x1="860" y1="298" x2="878" y2="298" stroke="#6E40C9" stroke-width="2.5" marker-end="url(#ahp)"/>
+            <line x1="878" y1="322" x2="860" y2="322" stroke="#6E40C9" stroke-width="2.5" marker-end="url(#ahp)"/>
+            <text x="869" y="288" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#6E40C9">push</text>
+            <text x="869" y="342" text-anchor="middle" font-family="JetBrains Mono" font-size="10" fill="#6E40C9">pull</text>
+          </g>
+        </svg>
+      </div>
+    </section>
+
     <!-- ################################################################ -->
     <!-- ############################ PYTHON ############################ -->
     <!-- ################################################################ -->
@@ -68,50 +149,9 @@
       <p class="lead" style="color:#d7e6f5">The recipe, the chef, and the kitchen.</p>
     </section>
 
-    <!-- The chef -->
+    <!-- LIVE: first cell (the recipe) -->
     <section>
-      <span class="tag py">Python · the chef</span>
-      <h3>The interpreter reads your recipe line by line</h3>
-      <div class="cols narrow-left">
-        <p>Different chefs exist — and the <em>same recipe</em> can turn out slightly differently depending on which one cooks it.</p>
-        <div data-widget="pyversion"></div>
-      </div>
-    </section>
-
-    <!-- Anaconda + kitchens -->
-    <section>
-      <span class="tag py">Anaconda · pantry &amp; kitchens</span>
-      <h3>Conda environments are separate kitchens</h3>
-      <div class="cols narrow-left">
-        <div>
-          <p class="fine">Each kitchen can have a different chef (Python version) and its own stocked pantry (packages) — so projects never fight over ingredients.</p>
-          <div class="callout tip" style="font-size:0.72em"><span class="tip-badge">do this once</span>
-            <span class="mono">conda create --name myclass python=3.12 numpy pandas scipy matplotlib ipykernel</span></div>
-        </div>
-        <div data-widget="condaenv"></div>
-      </div>
-    </section>
-
-    <!-- Installing packages -->
-    <section>
-      <span class="tag py">import · stocking the pantry</span>
-      <h3>Bring ingredients into your code</h3>
-      <div class="cols">
-        <div>
-          <p class="fine"><code>conda</code> and <code>pip</code> are the two big warehouses. Install into the <b>active</b> kitchen, then <code>import</code> in your recipe.</p>
-          <pre><code class="language-bash">pip install numpy pandas matplotlib</code></pre>
-        </div>
-        <div>
-          <div class="metaphor"><span class="ico">🧂</span><span class="mono" style="font-size:0.8em">import numpy as np</span></div>
-          <p class="fine">"Go to the NumPy warehouse, bring the tools into my pantry, and label them <code>np</code>."</p>
-          <div class="metaphor"><span class="ico">📈</span><span class="mono" style="font-size:0.8em">from matplotlib import pyplot as plt</span></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- LIVE: first cell -->
-    <section>
-      <span class="tag py">▶ live · runs in your browser</span>
+      <span class="tag py">▶ live · the recipe · runs in your browser</span>
       <h3>Your first recipe — try it!</h3>
       <p class="fine">Edit the code, then hit <b>Run</b> (or <span class="mono">Ctrl/Cmd + Enter</span>). Real Python, running right here.</p>
       <div class="pycell" data-file="hello.py"><script type="text/python">
@@ -125,10 +165,10 @@ print("Double batch:", servings * 2)
 </script></div>
     </section>
 
-    <!-- LIVE + widget: for loop -->
+    <!-- LIVE + widget: for loop (still the recipe) -->
     <section>
-      <span class="tag py">for loops · repeat a step</span>
-      <h3>A loop applies the same step over and over</h3>
+      <span class="tag py">▶ live · the recipe · for loops</span>
+      <h3>A loop repeats the same step over and over</h3>
       <div class="cols">
         <div data-widget="forloop"></div>
         <div class="pycell" data-file="loop.py"><script type="text/python">
@@ -137,6 +177,47 @@ for i in range(8):
     print(a)
     a, b = b, a + b
 </script></div>
+      </div>
+    </section>
+
+    <!-- The chef -->
+    <section>
+      <span class="tag py">the chef</span>
+      <h3>The interpreter reads your recipe line by line</h3>
+      <div class="cols narrow-left">
+        <p>Different chefs exist — and the <em>same recipe</em> can turn out slightly differently depending on which one cooks it.</p>
+        <div data-widget="pyversion"></div>
+      </div>
+    </section>
+
+    <!-- Anaconda + kitchens -->
+    <section>
+      <span class="tag py">the kitchen</span>
+      <h3>Conda environments are separate kitchens</h3>
+      <div class="cols narrow-left">
+        <div>
+          <p class="fine">Each kitchen can have a different chef (Python version) and its own stocked pantry (packages) — so projects never fight over ingredients.</p>
+          <div class="callout tip" style="font-size:0.72em"><span class="tip-badge">do this once</span>
+            <span class="mono">conda create --name myclass python=3.12 numpy pandas scipy matplotlib ipykernel</span></div>
+        </div>
+        <div data-widget="condaenv"></div>
+      </div>
+    </section>
+
+    <!-- Installing packages -->
+    <section>
+      <span class="tag py">the pantry</span>
+      <h3>Bring ingredients into your code</h3>
+      <div class="cols">
+        <div>
+          <p class="fine"><code>conda</code> and <code>pip</code> are the two big warehouses. Install into the <b>active</b> kitchen, then <code>import</code> in your recipe.</p>
+          <pre><code class="language-bash">pip install numpy pandas matplotlib</code></pre>
+        </div>
+        <div>
+          <div class="metaphor"><span class="ico">🧂</span><span class="mono" style="font-size:0.8em">import numpy as np</span></div>
+          <p class="fine">"Go to the NumPy warehouse, bring the tools into my pantry, and label them <code>np</code>."</p>
+          <div class="metaphor"><span class="ico">📈</span><span class="mono" style="font-size:0.8em">from matplotlib import pyplot as plt</span></div>
+        </div>
       </div>
     </section>
 
