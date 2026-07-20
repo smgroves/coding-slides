@@ -59,6 +59,25 @@
       </div>
     </section>
 
+    <!-- ################################################################ -->
+    <!-- ############################ PYTHON ############################ -->
+    <!-- ################################################################ -->
+    <section class="section-cover" data-background-color="#3776AB">
+      <div class="kicker" style="color:#d7e6f5">Part 1 of 3</div>
+      <h1 style="color:#fff">Python</h1>
+      <p class="lead" style="color:#d7e6f5">The chef, the kitchen, and your first recipe.</p>
+    </section>
+
+    <!-- The chef -->
+    <section>
+      <span class="tag py">the chef</span>
+      <h3>The interpreter reads your recipe line by line</h3>
+      <div class="cols narrow-left">
+        <p>Different chefs exist — and the <em>same recipe</em> can turn out slightly differently depending on which one cooks it.</p>
+        <div data-widget="pyversion"></div>
+      </div>
+    </section>
+
     <!-- ============ BIG PICTURE: THE RESTAURANT ============ -->
     <section>
       <span class="tag py" style="background:var(--accent)">the big picture</span>
@@ -140,56 +159,6 @@
       </div>
     </section>
 
-    <!-- ################################################################ -->
-    <!-- ############################ PYTHON ############################ -->
-    <!-- ################################################################ -->
-    <section class="section-cover" data-background-color="#3776AB">
-      <div class="kicker" style="color:#d7e6f5">Part 1 of 3</div>
-      <h1 style="color:#fff">Python</h1>
-      <p class="lead" style="color:#d7e6f5">The recipe, the chef, and the kitchen.</p>
-    </section>
-
-    <!-- LIVE: first cell (the recipe) -->
-    <section>
-      <span class="tag py">▶ live · the recipe · runs in your browser</span>
-      <h3>Your first recipe — try it!</h3>
-      <p class="fine">Edit the code, then hit <b>Run</b> (or <span class="mono">Ctrl/Cmd + Enter</span>). Real Python, running right here.</p>
-      <div class="pycell" data-file="hello.py"><script type="text/python">
-# variables are ingredients you can label and reuse
-name = "chef"
-servings = 4
-print(f"Hello, {name}! Cooking for {servings} tonight.")
-
-# change the numbers and re-run
-print("Double batch:", servings * 2)
-</script></div>
-    </section>
-
-    <!-- LIVE + widget: for loop (still the recipe) -->
-    <section>
-      <span class="tag py">▶ live · the recipe · for loops</span>
-      <h3>A loop repeats the same step over and over</h3>
-      <div class="cols">
-        <div data-widget="forloop"></div>
-        <div class="pycell" data-file="loop.py"><script type="text/python">
-a, b = 0, 1
-for i in range(8):
-    print(a)
-    a, b = b, a + b
-</script></div>
-      </div>
-    </section>
-
-    <!-- The chef -->
-    <section>
-      <span class="tag py">the chef</span>
-      <h3>The interpreter reads your recipe line by line</h3>
-      <div class="cols narrow-left">
-        <p>Different chefs exist — and the <em>same recipe</em> can turn out slightly differently depending on which one cooks it.</p>
-        <div data-widget="pyversion"></div>
-      </div>
-    </section>
-
     <!-- Anaconda + kitchens -->
     <section>
       <span class="tag py">the kitchen</span>
@@ -227,6 +196,37 @@ for i in range(8):
       <p style="margin-top:0.8em">"I just followed the recipe ChatGPT gave me… I don't know where I went wrong."</p>
       <div class="callout warn fragment" style="margin-top:1em"><span class="tip-badge">the point</span>
         GenAI is a useful sous-chef, but <strong>you</strong> are the head chef. If you can't read the recipe, you can't fix the dish.</div>
+    </section>
+
+    <!-- LIVE: first cell (open your practice file) -->
+    <section>
+      <span class="tag py">▶ live · the recipe · runs in your browser</span>
+      <h3>Open your practice file — try it!</h3>
+      <p class="fine">Edit the code, then hit <b>Run</b> (or <span class="mono">Ctrl/Cmd + Enter</span>). Real Python, running right here.</p>
+      <div class="pycell" data-file="python_practice.py"><script type="text/python">
+# variables are ingredients you can label and reuse
+name = "chef"
+servings = 4
+print(f"Hello, {name}! Cooking for {servings} tonight.")
+
+# change the numbers and re-run
+print("Double batch:", servings * 2)
+</script></div>
+    </section>
+
+    <!-- LIVE + widget: for loop -->
+    <section>
+      <span class="tag py">▶ live · the recipe · for loops</span>
+      <h3>A loop repeats the same step over and over</h3>
+      <div class="cols">
+        <div data-widget="forloop"></div>
+        <div class="pycell" data-file="loop.py"><script type="text/python">
+a, b = 0, 1
+for i in range(8):
+    print(a)
+    a, b = b, a + b
+</script></div>
+      </div>
     </section>
 
     <!-- Tips section header -->
