@@ -191,6 +191,87 @@
 .vs-welcome .item.hi { background:var(--accent); color:#fff; display:inline-block; padding:4px 12px; border-radius:6px; font-weight:600; }
 .vs-welcome .rec { color:#777; font-size:0.85em; }
 
+/* ---------- folder tree ---------- */
+.filetree { background:#fff; border:1px solid var(--line); border-radius:12px; padding:0.9em 1.1em;
+  font-family:var(--font-mono); font-size:0.82em; text-align:left; box-shadow:0 4px 16px rgba(43,39,36,0.06); }
+.filetree .r { padding:3px 0; color:var(--ink); white-space:nowrap; }
+.filetree .i1 { padding-left:1.4em; } .filetree .i2 { padding-left:2.8em; }
+.filetree .fo { color:var(--accent-dk); font-weight:600; }
+.filetree .mut { color:var(--muted); }
+
+/* ---------- generic terminal window ---------- */
+.termwin { background:#201d1a; border-radius:10px; overflow:hidden; text-align:left;
+  box-shadow:0 8px 24px rgba(0,0,0,0.22); font-family:var(--font-mono); }
+.termwin .bar { background:#3a3430; height:28px; display:flex; align-items:center; gap:6px; padding:0 11px; }
+.termwin .bar i { width:10px; height:10px; border-radius:50%; display:inline-block; }
+.termwin .bar i:nth-child(1){ background:#ff5f56; } .termwin .bar i:nth-child(2){ background:#ffbd2e; } .termwin .bar i:nth-child(3){ background:#27c93f; }
+.termwin .bar .nm { color:#c9bfb2; font-size:12px; margin-left:6px; }
+.termwin .body { padding:14px 16px; color:#D9D0C4; font-size:0.7em; line-height:1.65; white-space:pre-wrap; }
+.termwin .g { color:#79d17a; } .termwin .env { color:#3fc7a8; } .termwin .cm { color:#8a827a; }
+
+/* ---------- command palette ---------- */
+.palette { background:#252526; border:1px solid #454545; border-radius:8px; width:78%; margin:0 auto;
+  box-shadow:0 16px 40px rgba(0,0,0,0.45); overflow:hidden; text-align:left; font-family:var(--font-mono); }
+.palette .inp { background:#3c3c3c; color:#e8e8e8; padding:9px 13px; font-size:14px; border-bottom:1px solid #454545; }
+.palette .opt { padding:8px 13px; color:#cfcfcf; font-size:13px; }
+.palette .opt.sel { background:#094771; color:#fff; }
+.palette .opt .m { color:#8a8a8a; }
+
+/* ---------- interactive mode (#%%) split ---------- */
+.imode { display:flex; gap:0; border-radius:10px; overflow:hidden; box-shadow:0 8px 24px rgba(0,0,0,0.22); text-align:left; font-family:var(--font-mono); font-size:13px; }
+.imode .ed { background:#1e1e1e; color:#d4d4d4; flex:1; padding:10px 0; }
+.imode .runcell { color:#3fc7a8; font-size:11px; padding:2px 14px; }
+.imode .cl { padding:1px 14px; white-space:pre; }
+.imode .cl .k{color:#569cd6;} .imode .cl .s{color:#ce9178;} .imode .cl .b{color:#4ec9b0;} .imode .cl .cm{color:#6a9955;}
+.imode .res { background:#141414; color:#d4d4d4; flex:0 0 40%; padding:10px 12px; border-left:1px solid #000; }
+.imode .res .rt { color:#9d9d9d; font-size:10px; letter-spacing:0.09em; text-transform:uppercase; margin-bottom:6px; }
+.imode .res .in { color:#8a8a8a; } .imode .res .out { color:#d4d4d4; }
+
+/* ---------- github.com repo page (light) ---------- */
+.ghpage { width:830px; max-width:100%; margin:0 auto; text-align:left; border:1px solid #d0d7de; border-radius:10px;
+  overflow:hidden; background:#fff; font-family:var(--font-body); font-size:13px; position:relative; box-shadow:0 10px 30px rgba(0,0,0,0.12); }
+.gh-top { background:#24292f; color:#fff; height:40px; display:flex; align-items:center; gap:11px; padding:0 13px; }
+.gh-top .oct { font-size:17px; }
+.gh-top .search { background:#3a4048; border:1px solid #4a5058; border-radius:6px; color:#9aa0a6; font-size:11px; padding:4px 9px; width:190px; }
+.gh-top .avatar { margin-left:auto; width:22px; height:22px; border-radius:50%; background:#6E40C9; }
+.gh-repohead { padding:11px 16px; border-bottom:1px solid #d0d7de; }
+.gh-repohead .name { font-size:16px; color:#0969da; font-weight:600; }
+.gh-repohead .name b { color:#1f2328; } .gh-repohead .name .sl { color:#656d76; font-weight:400; }
+.gh-repohead .badge { font-size:10px; border:1px solid #d0d7de; border-radius:999px; padding:1px 8px; color:#656d76; margin-left:8px; vertical-align:middle; }
+.gh-bar { display:flex; align-items:center; gap:10px; padding:11px 16px; }
+.gh-branch { border:1px solid #d0d7de; border-radius:6px; padding:5px 11px; font-size:12px; color:#1f2328; background:#f6f8fa; }
+.gh-code { margin-left:auto; background:#1f883d; color:#fff; border-radius:6px; padding:6px 13px; font-size:12px; font-weight:600; }
+.gh-files { border:1px solid #d0d7de; border-radius:8px; margin:0 16px 16px; }
+.gh-commitrow { background:#f6f8fa; padding:9px 13px; font-size:12px; color:#656d76; border-bottom:1px solid #d0d7de; border-radius:8px 8px 0 0; }
+.gh-file { padding:8px 13px; border-bottom:1px solid #eaeef2; font-size:13px; color:#1f2328; display:flex; gap:9px; }
+.gh-file:last-child { border-bottom:none; }
+.gh-file .fmsg { margin-left:auto; color:#656d76; font-size:12px; }
+
+/* ---------- GitHub Desktop (light) ---------- */
+.ghdesktop { border:1px solid #d0d7de; border-radius:10px; overflow:hidden; background:#fff; text-align:left;
+  font-family:var(--font-body); font-size:12px; box-shadow:0 8px 24px rgba(0,0,0,0.12); }
+.ghd-bar { background:#24292f; color:#e8e8e8; display:flex; font-size:12px; }
+.ghd-bar div { padding:9px 13px; border-right:1px solid #3a4048; }
+.ghd-bar .cur { color:#fff; font-weight:600; }
+.ghd-body { display:flex; min-height:150px; }
+.ghd-changes { width:42%; border-right:1px solid #d0d7de; padding:9px; }
+.ghd-changes .h { color:#656d76; font-size:11px; text-transform:uppercase; letter-spacing:0.06em; margin-bottom:6px; }
+.ghd-changes .f { color:#1f2328; padding:2px 0; } .ghd-changes .plus { color:#1f883d; }
+.ghd-commit { flex:1; padding:10px; background:#f6f8fa; display:flex; flex-direction:column; gap:7px; }
+.ghd-msg { border:1px solid #d0d7de; border-radius:6px; padding:6px 9px; color:#8a9096; background:#fff; }
+.ghd-btn { background:#1f883d; color:#fff; border-radius:6px; padding:7px; text-align:center; font-weight:600; }
+
+/* ---------- pull-request step flow ---------- */
+.prsteps { display:flex; gap:0.7em; align-items:stretch; }
+.prstep { flex:1; background:var(--card); border:1px solid var(--line); border-radius:12px; padding:0.8em 0.9em;
+  text-align:left; box-shadow:0 3px 12px rgba(43,39,36,0.05); }
+.prstep .n { width:24px; height:24px; border-radius:50%; background:var(--gh); color:#fff; font-family:var(--font-mono);
+  font-weight:700; font-size:12px; display:flex; align-items:center; justify-content:center; margin-bottom:0.5em; }
+.prstep h4 { font-family:var(--font-body); font-size:0.82em; margin:0 0 0.3em; color:var(--ink); }
+.prstep p { font-size:0.68em; color:var(--muted); margin:0; }
+.prstep .pill { display:inline-block; font-family:var(--font-mono); font-size:0.62em; border-radius:6px; padding:2px 7px; margin-top:0.4em; }
+.prstep .pill.grn { background:#1f883d; color:#fff; } .prstep .pill.gray { background:#eaeef2; color:#57606a; }
+
 /* ---------- restaurant big-picture diagram ---------- */
 .restaurant { text-align:center; }
 .restaurant svg { max-width: 960px; width:100%; height:auto; display:block; margin:0.2em auto 0; }
@@ -222,7 +303,7 @@
 /* ---------- notebook mock ---------- */
 .nb {
   background:#fff; border:1px solid var(--line); border-radius:12px;
-  overflow:hidden; text-align:left; font-size: 0.58em;
+  overflow:hidden; text-align:left; font-size: 0.53em;
   box-shadow: 0 6px 22px rgba(43,39,36,0.08);
 }
 .nb .nb-cell { border-bottom:1px solid #eee; display:flex; }
@@ -237,7 +318,7 @@
 .nb .nb-out { font-family:var(--font-mono); color:#666; padding:0.3em 0.2em; white-space:pre-wrap; font-size:0.8em; }
 .nb .nb-out.ugly { color:#b00; max-height: 3.2em; overflow:hidden; position:relative; }
 .nb .nb-plot { margin-top:0.4em; }
-.nb .nb-plot svg { width:260px; max-width:100%; display:block; }
+.nb .nb-plot svg { width:210px; max-width:100%; display:block; }
 .quality-badge { display:inline-block; font-family:var(--font-mono); font-size:0.5em; letter-spacing:0.12em;
   text-transform:uppercase; padding:0.25em 0.7em; border-radius:999px; margin-bottom:0.5em; }
 .quality-badge.hi { background:#E9F2EF; color:var(--teal); }

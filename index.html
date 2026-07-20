@@ -68,6 +68,28 @@
       <p class="lead" style="color:#d7e6f5">The chef, the kitchen, and your first recipe.</p>
     </section>
 
+    <!-- Folder organization -->
+    <section>
+      <span class="tag py">the recipe book</span>
+      <h3>Organize your files like a recipe book</h3>
+      <div class="cols narrow-left">
+        <div>
+          <p class="fine">Pick <b>one</b> location for this class (Documents? Box? Home?). Give each module its own subfolder, and drop any files from your LMS in the right one.</p>
+          <div class="callout tip" style="font-size:0.72em"><span class="tip-badge">tip</span>
+            Name files so future-you understands them — <span class="mono">emg_trial03.csv</span>, not <span class="mono">data2.csv</span>.</div>
+        </div>
+        <div class="filetree">
+          <div class="r fo">📁 myclass-folder/</div>
+          <div class="r i1 fo">📁 Module_0/</div>
+          <div class="r i2">📄 python_practice.py</div>
+          <div class="r i2">📊 emg_trial03.csv</div>
+          <div class="r i1 fo">📁 Module_1/</div>
+          <div class="r i2 mut">…</div>
+          <div class="r i1">📄 README.md</div>
+        </div>
+      </div>
+    </section>
+
     <!-- The chef -->
     <section>
       <span class="tag py">the chef</span>
@@ -75,6 +97,25 @@
       <div class="cols narrow-left">
         <p>Different chefs exist — and the <em>same recipe</em> can turn out slightly differently depending on which one cooks it.</p>
         <div data-widget="pyversion"></div>
+      </div>
+    </section>
+
+    <!-- Terminal = the order counter -->
+    <section>
+      <span class="tag py">the order counter</span>
+      <h3>The terminal is where you place orders</h3>
+      <div class="cols narrow-left">
+        <div>
+          <p class="fine">Typing a command in the terminal is how you tell the chef what to cook. You can open it as a standalone app (Terminal / Command Prompt) or right inside VS Code — same counter, different windows.</p>
+        </div>
+        <div class="termwin">
+          <div class="bar"><i></i><i></i><i></i><span class="nm">Terminal</span></div>
+          <div class="body"><span class="env">(myclass)</span> $ <span class="g">python analysis.py</span>
+<span class="cm"># = "Chef Python, make the</span>
+<span class="cm">#    analysis.py recipe."</span>
+
+RMS: 0.42</div>
+        </div>
       </div>
     </section>
 
@@ -264,6 +305,33 @@
       </div>
     </section>
 
+    <!-- Command palette vs conda activate -->
+    <section>
+      <span class="tag py">which chef &amp; kitchen?</span>
+      <h3>Two places to choose your Python</h3>
+      <div class="cols">
+        <div>
+          <p class="fine center" style="margin-bottom:0.5em"><b>Command Palette</b> — sets it for the whole IDE</p>
+          <div class="palette">
+            <div class="inp">&gt;Python: Select Interpreter</div>
+            <div class="opt sel">🐍 Python 3.12 ('myclass': conda) <span class="m">← pick this</span></div>
+            <div class="opt">🐍 Python 3.12 ('base': conda)</div>
+            <div class="opt">🐍 Python 3.9 (system)</div>
+          </div>
+          <p class="fine center" style="margin-top:0.5em"><span class="mono">Cmd/Ctrl + Shift + P</span> · do this <b>once</b></p>
+        </div>
+        <div>
+          <p class="fine center" style="margin-bottom:0.5em"><b>Terminal</b> — sets it for this session</p>
+          <div class="termwin">
+            <div class="bar"><i></i><i></i><i></i><span class="nm">Terminal</span></div>
+            <div class="body">$ <span class="g">conda activate myclass</span>
+<span class="env">(myclass)</span> $ pip install pandas</div>
+          </div>
+          <p class="fine center" style="margin-top:0.5em">do this <b>when installing packages</b></p>
+        </div>
+      </div>
+    </section>
+
     <!-- Installing packages -->
     <section>
       <span class="tag py">the pantry</span>
@@ -342,6 +410,31 @@ data = np.array([2.0, 4.0, 4.0, 4.0, 5.0, 5.0, 7.0, 9.0])
 print("mean:", data.mean())
 print("std: ", round(data.std(), 3))
 </script></div>
+      </div>
+    </section>
+
+    <!-- Interactive mode (#%%) -->
+    <section>
+      <span class="tag py">interactive mode</span>
+      <h3>Run cells right inside a <span class="mono">.py</span> file</h3>
+      <p class="fine">A <code>#%%</code> comment turns the next chunk into a runnable cell. Click <b>Run Cell</b> and results (and plots!) appear in an interactive window beside your script — no file saved, running in your current conda env.</p>
+      <div class="imode">
+        <div class="ed">
+          <div class="runcell">▷ Run Cell</div>
+          <div class="cl"><span class="cm">#%% load the data</span></div>
+          <div class="cl"><span class="k">import</span> numpy <span class="k">as</span> np</div>
+          <div class="cl">data = np.<span class="b">loadtxt</span>(<span class="s">"emg.csv"</span>)</div>
+          <div class="cl">&nbsp;</div>
+          <div class="runcell">▷ Run Cell</div>
+          <div class="cl"><span class="cm">#%% inspect</span></div>
+          <div class="cl"><span class="b">print</span>(<span class="s">"mean:"</span>, data.mean())</div>
+        </div>
+        <div class="res">
+          <div class="rt">Python Interactive</div>
+          <div class="in">In [1]: (loaded 2000 samples)</div>
+          <div class="in" style="margin-top:6px">In [2]:</div>
+          <div class="out">mean: 0.021</div>
+        </div>
       </div>
     </section>
 
@@ -495,6 +588,73 @@ print("all tests passed ✅")
       <div class="gitwf" data-widget="branches"></div>
     </section>
 
+    <!-- github.com labeled -->
+    <section>
+      <span class="tag gh">github.com · where everything is</span>
+      <h3>Your repository, on the web</h3>
+      <div class="cols">
+        <div class="ghpage">
+          <span class="vs-badge" style="left:12px;  top:10px; background:var(--gh);">1</span>
+          <span class="vs-badge" style="left:52px;  top:52px; background:var(--gh);">2</span>
+          <span class="vs-badge" style="left:24px;  top:92px; background:var(--gh);">3</span>
+          <span class="vs-badge" style="left:640px; top:92px; background:var(--gh);">4</span>
+          <span class="vs-badge" style="left:52px;  top:150px; background:var(--gh);">5</span>
+          <span class="vs-badge" style="left:520px; top:190px; background:var(--gh);">6</span>
+
+          <div class="gh-top"><span class="oct">🐙</span><span class="search">Search…</span><span>Pull requests</span><span>Issues</span><span class="avatar"></span></div>
+          <div class="gh-repohead"><span class="name"><b>ENG-myclass</b> <span class="sl">/</span> Module_0_LastName</span><span class="badge">Private</span></div>
+          <div class="gh-bar"><span class="gh-branch">🔀 main ▾</span><span class="gh-code">↓ Code ▾</span></div>
+          <div class="gh-files">
+            <div class="gh-commitrow">✅ LastName <b>update analysis</b> · last commit 2 hours ago</div>
+            <div class="gh-file">📄 README.md <span class="fmsg">initial commit</span></div>
+            <div class="gh-file">📄 analysis.py <span class="fmsg">update analysis</span></div>
+            <div class="gh-file">📊 emg_trial03.csv <span class="fmsg">add data</span></div>
+          </div>
+        </div>
+        <div class="vs-legend" style="flex:0 0 30%">
+          <div class="li"><span class="num" style="background:var(--gh)">1</span><span><b>Orgs &amp; your account</b> <span class="m">— top nav / avatar</span></span></div>
+          <div class="li"><span class="num" style="background:var(--gh)">2</span><span><b>Repository name</b> <span class="m">— org / repo</span></span></div>
+          <div class="li"><span class="num" style="background:var(--gh)">3</span><span><b>Branch selector</b> <span class="m">— which version</span></span></div>
+          <div class="li"><span class="num" style="background:var(--gh)">4</span><span><b>Code button</b> <span class="m">— clone / download URL</span></span></div>
+          <div class="li"><span class="num" style="background:var(--gh)">5</span><span><b>Latest commit</b> <span class="m">— who changed what, when</span></span></div>
+          <div class="li"><span class="num" style="background:var(--gh)">6</span><span><b>Files</b> <span class="m">— mirrors your local folder</span></span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Getting the code: Desktop + command line -->
+    <section>
+      <span class="tag gh">getting the code · two ways</span>
+      <h3>Clone, commit, push — Desktop or command line</h3>
+      <div class="cols">
+        <div>
+          <p class="fine center" style="margin-bottom:0.4em"><b>GitHub Desktop</b> (buttons)</p>
+          <div class="ghdesktop">
+            <div class="ghd-bar"><div class="cur">Current repo: Module_0 ▾</div><div>↓ Fetch origin</div></div>
+            <div class="ghd-body">
+              <div class="ghd-changes"><div class="h">2 changed files</div><div class="f"><span class="plus">+</span> analysis.py</div><div class="f"><span class="plus">+</span> README.md</div></div>
+              <div class="ghd-commit"><div class="ghd-msg">Summary (commit message)…</div><div class="ghd-btn">Commit to main</div><div class="fine" style="color:#57606a">then <b>Push origin ↑</b></div></div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <p class="fine center" style="margin-bottom:0.4em"><b>Command line</b> (git)</p>
+          <div class="termwin">
+            <div class="bar"><i></i><i></i><i></i><span class="nm">Terminal</span></div>
+            <div class="body" style="font-size:0.6em"><span class="cm"># get the shared repo (once)</span>
+$ <span class="g">git clone &lt;url&gt;</span>
+
+<span class="cm"># every session</span>
+$ <span class="g">git pull origin main</span>
+<span class="cm"># …edit &amp; save…</span>
+$ <span class="g">git add .</span>
+$ <span class="g">git commit -m "message"</span>
+$ <span class="g">git push origin main</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- PR flow -->
     <section>
       <span class="tag gh">pull requests</span>
@@ -505,6 +665,51 @@ print("all tests passed ✅")
         <li>Partner reviews &amp; comments; once approved, <b>merge</b> into <span class="mono">main</span>.</li>
       </ol>
       <div class="callout warn">Only merge when code is "done." And <strong>don't delete your personal branch.</strong></div>
+    </section>
+
+    <!-- PR flow visuals -->
+    <section>
+      <span class="tag gh">pull requests · step by step</span>
+      <h3>Opening a pull request</h3>
+      <div class="prsteps">
+        <div class="prstep">
+          <div class="n">1</div><h4>Push your branch</h4>
+          <p>GitHub notices and offers to compare it with <span class="mono">main</span>.</p>
+          <span class="pill gray">Compare &amp; pull request</span>
+        </div>
+        <div class="prstep">
+          <div class="n">2</div><h4>Open the PR</h4>
+          <p>Give it a title and describe <em>what it adds</em>.</p>
+          <span class="pill grn">Create pull request</span>
+        </div>
+        <div class="prstep">
+          <div class="n">3</div><h4>Partner reviews</h4>
+          <p>They read the changes and leave comments.</p>
+          <span class="pill gray">💬 Add a comment</span>
+        </div>
+        <div class="prstep">
+          <div class="n">4</div><h4>Approve &amp; merge</h4>
+          <p>Once approved, merge into <span class="mono">main</span>. 🎉</p>
+          <span class="pill grn">Merge pull request</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- How we'll use GitHub in this class -->
+    <section>
+      <span class="tag gh">the workflow</span>
+      <h3>How we'll use GitHub in this class</h3>
+      <div class="cols">
+        <div>
+          <div class="metaphor"><span class="ico">📁</span><span><b>One repo per project</b>, shared with your partner</span></div>
+          <div class="metaphor"><span class="ico">🌿</span><span>Each partner works on their <b>own branch</b></span></div>
+        </div>
+        <div>
+          <div class="metaphor"><span class="ico">🐍</span><span>Code in your own <b>.py files</b>, pushed often</span></div>
+          <div class="metaphor"><span class="ico">📓</span><span>Final <b>notebook imports</b> functions from those .py files</span></div>
+        </div>
+      </div>
+      <div class="callout tip" style="margin-top:0.7em; font-size:0.8em">Regular pull requests merge your branch into <span class="mono">main</span> — small and often beats one giant merge.</div>
     </section>
 
     <!-- protocol -->
@@ -549,6 +754,23 @@ print("all tests passed ✅")
     <section>
       <h2 class="bigq">Communicating results is an <em>engineering</em> skill.</h2>
       <p class="fine" style="margin-top:0.8em">A notebook (<span class="mono">.ipynb</span>) mixes <b>markdown</b>, <b>code</b>, and <b>output</b> — so a reader can step through your analysis like a report.</p>
+    </section>
+
+    <!-- Jupyter getting started -->
+    <section>
+      <span class="tag jup">getting started</span>
+      <h3>What is a Jupyter notebook?</h3>
+      <div class="cols">
+        <div>
+          <div class="metaphor"><span class="ico">📓</span><span>a <span class="m-code">.ipynb</span> file — <span class="m-real">code + prose + output in one</span></span></div>
+          <div class="metaphor"><span class="ico">🧩</span><span>needs the <b>Jupyter extension</b> (you installed it)</span></div>
+          <div class="metaphor"><span class="ico">📦</span><span>and the <span class="mono">ipykernel</span> package in your env</span></div>
+        </div>
+        <div>
+          <div class="callout tip" style="font-size:0.82em"><span class="tip-badge">cells</span>
+            Each cell is <b>Markdown</b> (prose) or <b>Code</b>. Run one with <span class="mono">Shift + Enter</span> — output appears right below it.</div>
+        </div>
+      </div>
     </section>
 
     <!-- notebook toggle -->
