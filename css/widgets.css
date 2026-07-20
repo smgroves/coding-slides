@@ -228,15 +228,27 @@
 .palette .opt.sel { background:#094771; color:#fff; }
 .palette .opt .m { color:#8a8a8a; }
 
-/* ---------- interactive mode (#%%) split ---------- */
-.imode { display:flex; gap:0; border-radius:10px; overflow:hidden; box-shadow:0 8px 24px rgba(0,0,0,0.22); text-align:left; font-family:var(--font-mono); font-size:13px; }
-.imode .ed { background:#1e1e1e; color:#d4d4d4; flex:1; padding:10px 0; }
-.imode .runcell { color:#3fc7a8; font-size:11px; padding:2px 14px; }
-.imode .cl { padding:1px 14px; white-space:pre; }
-.imode .cl .k{color:#569cd6;} .imode .cl .s{color:#ce9178;} .imode .cl .b{color:#4ec9b0;} .imode .cl .cm{color:#6a9955;}
-.imode .res { background:#141414; color:#d4d4d4; flex:0 0 40%; padding:10px 12px; border-left:1px solid #000; }
-.imode .res .rt { color:#9d9d9d; font-size:10px; letter-spacing:0.09em; text-transform:uppercase; margin-bottom:6px; }
-.imode .res .in { color:#8a8a8a; } .imode .res .out { color:#d4d4d4; }
+/* ---------- interactive mode (#%%) window ---------- */
+.imode { border-radius:10px; overflow:hidden; box-shadow:0 10px 30px rgba(0,0,0,0.24); text-align:left;
+  font-family:var(--font-mono); background:#1e1e1e; }
+.imode .imode-bar { background:#323233; height:30px; display:flex; align-items:center; gap:7px; padding:0 11px; }
+.imode .imode-bar i { width:11px; height:11px; border-radius:50%; display:inline-block; }
+.imode .imode-bar i:nth-child(1){ background:#ff5f56; } .imode .imode-bar i:nth-child(2){ background:#ffbd2e; } .imode .imode-bar i:nth-child(3){ background:#27c93f; }
+.imode .imode-bar .t { color:#b9b9b9; font-size:12px; margin:0 auto; }
+.imode .imode-body { display:flex; align-items:stretch; }
+.imode .ed { background:#1e1e1e; color:#d4d4d4; flex:1; padding:12px 12px; font-size:13.5px; line-height:1.55; }
+.imode .cell { border-left:3px solid #3d5766; background:#23292c; border-radius:0 6px 6px 0; padding:5px 0 9px; margin-bottom:13px; }
+.imode .cell:last-child { margin-bottom:0; }
+.imode .lens { color:#8a8a8a; font-size:11px; padding:1px 13px 5px; }
+.imode .lens b { color:#3fc7a8; font-weight:600; }
+.imode .cl { padding:1px 13px; white-space:pre; }
+.imode .cm { color:#6a9955; } .imode .k{ color:#569cd6; } .imode .s{ color:#ce9178; } .imode .b{ color:#4ec9b0; }
+.imode .res { background:#181818; color:#d4d4d4; flex:0 0 40%; padding:12px 14px; border-left:1px solid #000; }
+.imode .res .rt { color:#9d9d9d; font-size:10px; letter-spacing:0.09em; text-transform:uppercase; margin-bottom:9px; }
+.imode .res .io { display:flex; gap:9px; margin:5px 0; font-size:12.5px; align-items:baseline; }
+.imode .res .io .in { color:#4aa3e0; flex:0 0 auto; }
+.imode .res .plot { margin-top:9px; background:#fff; border-radius:6px; padding:5px 6px; }
+.imode .res .plot svg { width:100%; display:block; }
 
 /* ---------- github.com repo page (light) ---------- */
 .ghpage { width:830px; max-width:100%; margin:0 auto; text-align:left; border:1px solid #d0d7de; border-radius:10px;

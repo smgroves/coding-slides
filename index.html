@@ -420,21 +420,33 @@ print("std: ", round(data.std(), 3))
       <h3>Run cells right inside a <span class="mono">.py</span> file</h3>
       <p class="fine">A <code>#%%</code> comment turns the next chunk into a runnable cell. Click <b>Run Cell</b> and results (and plots!) appear in an interactive window beside your script — no file saved, running in your current conda env.</p>
       <div class="imode">
-        <div class="ed">
-          <div class="runcell">▷ Run Cell</div>
-          <div class="cl"><span class="cm">#%% load the data</span></div>
-          <div class="cl"><span class="k">import</span> numpy <span class="k">as</span> np</div>
-          <div class="cl">data = np.<span class="b">loadtxt</span>(<span class="s">"emg.csv"</span>)</div>
-          <div class="cl">&nbsp;</div>
-          <div class="runcell">▷ Run Cell</div>
-          <div class="cl"><span class="cm">#%% inspect</span></div>
-          <div class="cl"><span class="b">print</span>(<span class="s">"mean:"</span>, data.mean())</div>
-        </div>
-        <div class="res">
-          <div class="rt">Python Interactive</div>
-          <div class="in">In [1]: (loaded 2000 samples)</div>
-          <div class="in" style="margin-top:6px">In [2]:</div>
-          <div class="out">mean: 0.021</div>
+        <div class="imode-bar"><i></i><i></i><i></i><span class="t">analysis.py</span></div>
+        <div class="imode-body">
+          <div class="ed">
+            <div class="cell">
+              <div class="lens"><b>▷ Run Cell</b> · Run Below · Debug Cell</div>
+              <div class="cl"><span class="cm">#%% load the data</span></div>
+              <div class="cl"><span class="k">import</span> numpy <span class="k">as</span> np</div>
+              <div class="cl">data = np.<span class="b">loadtxt</span>(<span class="s">"emg.csv"</span>)</div>
+            </div>
+            <div class="cell">
+              <div class="lens"><b>▷ Run Cell</b> · Run Above · Debug Cell</div>
+              <div class="cl"><span class="cm">#%% plot the signal</span></div>
+              <div class="cl"><span class="k">import</span> matplotlib.pyplot <span class="k">as</span> plt</div>
+              <div class="cl">plt.<span class="b">plot</span>(data)</div>
+            </div>
+          </div>
+          <div class="res">
+            <div class="rt">◧ Python Interactive</div>
+            <div class="io"><span class="in">[1]</span><span>loaded 2000 samples</span></div>
+            <div class="io"><span class="in">[2]</span><span>&lt;Figure&gt;</span></div>
+            <div class="plot">
+              <svg viewBox="0 0 240 120"><rect width="240" height="120" fill="#fff"/>
+                <line x1="34" y1="10" x2="34" y2="100" stroke="#333"/><line x1="34" y1="100" x2="232" y2="100" stroke="#333"/>
+                <polyline points="38,92 70,64 102,72 134,40 170,52 232,24" fill="none" stroke="#D2603A" stroke-width="2.2"/>
+                <text x="133" y="116" text-anchor="middle" font-family="Inter" font-size="8" fill="#333">samples</text></svg>
+            </div>
+          </div>
         </div>
       </div>
     </section>
