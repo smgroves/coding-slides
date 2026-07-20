@@ -1,0 +1,203 @@
+/* ============================================================
+   Coding Slides — custom reveal.js theme
+   "Coding as running a restaurant"
+   Warm, clean, light. Inspired in feel by yyahn.com talks.
+   ============================================================ */
+
+:root {
+  --bg:        #FBF7F0;   /* warm cream */
+  --ink:       #2B2724;   /* warm near-black */
+  --muted:     #8A8079;   /* warm grey */
+  --line:      #E7DFD3;   /* soft divider */
+  --card:      #FFFFFF;
+
+  --accent:    #D2603A;   /* terracotta (primary) */
+  --accent-dk: #A8461F;
+  --teal:      #2E7D6B;   /* code / correct */
+  --gold:      #E3A21A;   /* highlight */
+
+  /* section identities */
+  --py:      #3776AB;     /* python blue */
+  --py-2:    #FFD343;     /* python yellow */
+  --gh:      #6E40C9;     /* github purple */
+  --jup:     #F37726;     /* jupyter orange */
+
+  --code-bg:   #2B2724;
+  --code-ink:  #F4EEE4;
+
+  --font-body:    "Inter", system-ui, -apple-system, sans-serif;
+  --font-display: "Fraunces", Georgia, serif;
+  --font-mono:    "JetBrains Mono", "SF Mono", Menlo, monospace;
+}
+
+/* -------- base -------- */
+.reveal {
+  font-family: var(--font-body);
+  font-size: 32px;
+  color: var(--ink);
+  font-weight: 400;
+}
+.reveal-viewport { background: var(--bg); }
+
+.reveal .slides { text-align: left; }
+.reveal .slides section { line-height: 1.35; }
+
+/* -------- headings -------- */
+.reveal h1, .reveal h2, .reveal h3 {
+  font-family: var(--font-display);
+  color: var(--ink);
+  font-weight: 600;
+  line-height: 1.08;
+  letter-spacing: -0.01em;
+  margin: 0 0 0.4em 0;
+  text-transform: none;
+}
+.reveal h1 { font-size: 2.5em; }
+.reveal h2 { font-size: 1.75em; }
+.reveal h3 { font-size: 1.2em; }
+.reveal em, .reveal .accent { color: var(--accent); font-style: normal; }
+.reveal .display em { font-style: italic; }
+
+.reveal p { margin: 0.5em 0; }
+.reveal a { color: var(--accent-dk); text-decoration: none; border-bottom: 2px solid var(--line); }
+.reveal a:hover { border-color: var(--accent); }
+
+.reveal strong { font-weight: 700; color: var(--ink); }
+
+/* -------- lists -------- */
+.reveal ul, .reveal ol { display: block; margin-left: 1em; }
+.reveal li { margin: 0.35em 0; }
+.reveal li::marker { color: var(--accent); }
+
+/* -------- code -------- */
+.reveal code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background: #F0E8DA;
+  color: var(--accent-dk);
+  padding: 0.08em 0.35em;
+  border-radius: 5px;
+}
+.reveal pre {
+  width: 100%;
+  box-shadow: 0 6px 24px rgba(43,39,36,0.14);
+  border-radius: 12px;
+  font-size: 0.62em;
+}
+.reveal pre code {
+  background: var(--code-bg);
+  color: var(--code-ink);
+  padding: 1em 1.2em;
+  border-radius: 12px;
+  max-height: 520px;
+}
+
+/* -------- section dividers -------- */
+.section-cover { text-align: center; }
+.section-cover .kicker {
+  font-family: var(--font-mono);
+  font-size: 0.5em;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 0.6em;
+}
+.section-cover h1 { font-size: 3em; }
+.section-cover .lead { color: var(--muted); font-size: 1.05em; margin-top: 0.5em; }
+
+.tag {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.42em;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.35em 0.8em;
+  border-radius: 999px;
+  color: #fff;
+  margin-bottom: 0.9em;
+}
+.tag.py  { background: var(--py); }
+.tag.gh  { background: var(--gh); }
+.tag.jup { background: var(--jup); }
+
+/* -------- title slide -------- */
+.title-slide { text-align: center; }
+.title-slide .emoji-row { font-size: 1.6em; letter-spacing: 0.1em; margin-bottom: 0.3em; }
+.title-slide h1 { font-size: 3.2em; margin-bottom: 0.1em; }
+.title-slide .subtitle { color: var(--accent); font-size: 1.1em; font-family: var(--font-display); font-style: italic; }
+.title-slide .byline { color: var(--muted); font-size: 0.7em; margin-top: 1.2em; font-family: var(--font-mono); letter-spacing: 0.05em; }
+
+/* -------- big question -------- */
+.reveal .bigq {
+  font-family: var(--font-display);
+  font-size: 2.4em;
+  line-height: 1.1;
+  font-weight: 600;
+}
+
+/* -------- two column -------- */
+.cols { display: flex; gap: 1.5em; align-items: flex-start; }
+.cols > * { flex: 1; min-width: 0; }
+.cols.narrow-left > :first-child { flex: 0 0 38%; }
+
+/* -------- cards -------- */
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 0.9em 1.1em;
+  box-shadow: 0 3px 14px rgba(43,39,36,0.05);
+}
+.card h3 { margin-top: 0; }
+
+/* metaphor mapping chip */
+.metaphor {
+  display: flex; align-items: center; gap: 0.6em;
+  background: var(--card); border: 1px solid var(--line);
+  border-radius: 12px; padding: 0.55em 0.8em; margin: 0.4em 0;
+  font-size: 0.82em;
+}
+.metaphor .ico { font-size: 1.5em; line-height: 1; }
+.metaphor .m-real { color: var(--muted); }
+.metaphor .m-arrow { color: var(--accent); font-weight: 700; }
+.metaphor .m-code { font-family: var(--font-mono); color: var(--teal); font-weight: 600; }
+
+/* callout */
+.callout {
+  border-left: 5px solid var(--accent);
+  background: #F6EDE2;
+  padding: 0.7em 1em;
+  border-radius: 0 10px 10px 0;
+  font-size: 0.85em;
+}
+.callout.tip   { border-color: var(--teal);  background: #E9F2EF; }
+.callout.warn  { border-color: var(--gold);  background: #FBF1D8; }
+
+.tip-badge {
+  font-family: var(--font-mono); font-size: 0.55em; letter-spacing: 0.15em;
+  text-transform: uppercase; color: var(--accent); display:block; margin-bottom: 0.2em;
+}
+
+/* -------- footer / progress -------- */
+.reveal .slide-number { background: transparent; color: var(--muted); font-family: var(--font-mono); }
+.reveal .progress { color: var(--accent); height: 4px; }
+
+.deck-footer {
+  position: fixed; bottom: 12px; left: 18px; z-index: 30;
+  font-family: var(--font-mono); font-size: 12px; color: var(--muted);
+  letter-spacing: 0.05em; pointer-events: none;
+}
+
+/* -------- controls color -------- */
+.reveal .controls { color: var(--accent); }
+
+/* fragment fade for metaphor reveals handled by reveal fragments */
+
+/* small helper text */
+.fine { font-size: 0.62em; color: var(--muted); }
+.mono { font-family: var(--font-mono); }
+.center { text-align: center; }
+.tc { text-align: center; }
+
+/* keep long slides scrollable rather than clipped */
+.reveal .slides section.scrollable { height: 100%; overflow-y: auto; }

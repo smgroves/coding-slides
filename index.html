@@ -1,0 +1,505 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Intro to Coding — Python · GitHub · Jupyter</title>
+
+  <!-- reveal.js core -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/monokai.css">
+
+  <!-- fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <!-- custom theme + widgets -->
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/widgets.css">
+</head>
+<body>
+<div class="deck-footer">Intro to Coding · BME 2315 · use ← → or Space</div>
+<div class="reveal">
+  <div class="slides">
+
+    <!-- ============ TITLE ============ -->
+    <section class="title-slide" data-background-color="#FBF7F0">
+      <div class="emoji-row">🍳 💻 🌿</div>
+      <h1>Intro to Coding</h1>
+      <div class="subtitle">Python · GitHub · Jupyter — as if you ran a restaurant</div>
+      <div class="byline">Dr. Groves &amp; Dr. Peirce-Cottler · Module 0</div>
+      <p class="fine" style="margin-top:2em">Press <b>S</b> for speaker notes · <b>O</b> for overview · <b>F</b> for fullscreen</p>
+    </section>
+
+    <!-- ============ BIG IDEA ============ -->
+    <section data-background-color="#FBF7F0">
+      <h2 class="bigq">Writing code <em>≠</em> running code.</h2>
+      <p class="lead" style="color:var(--muted); font-size:1.1em; margin-top:0.6em">
+        A recipe describes ingredients and steps — but a recipe does not cook itself.
+      </p>
+      <p class="fragment" style="margin-top:1em">So let's think of coding like <strong>running a restaurant</strong> 🍽️</p>
+    </section>
+
+    <section data-background-color="#FBF7F0">
+      <h3>The cast of characters</h3>
+      <div class="cols">
+        <div>
+          <div class="metaphor fragment"><span class="ico">📖</span><span><span class="m-code">.py file</span> <span class="m-arrow">→</span> <span class="m-real">the recipe</span></span></div>
+          <div class="metaphor fragment"><span class="ico">👨‍🍳</span><span><span class="m-code">Python</span> <span class="m-arrow">→</span> <span class="m-real">the chef who cooks it</span></span></div>
+          <div class="metaphor fragment"><span class="ico">🧾</span><span><span class="m-code">terminal</span> <span class="m-arrow">→</span> <span class="m-real">the order counter</span></span></div>
+          <div class="metaphor fragment"><span class="ico">🏠</span><span><span class="m-code">VS Code</span> <span class="m-arrow">→</span> <span class="m-real">the restaurant</span></span></div>
+        </div>
+        <div>
+          <div class="metaphor fragment"><span class="ico">🚚</span><span><span class="m-code">Anaconda</span> <span class="m-arrow">→</span> <span class="m-real">supplier &amp; pantry</span></span></div>
+          <div class="metaphor fragment"><span class="ico">🍳</span><span><span class="m-code">conda env</span> <span class="m-arrow">→</span> <span class="m-real">a kitchen</span></span></div>
+          <div class="metaphor fragment"><span class="ico">☁️</span><span><span class="m-code">GitHub</span> <span class="m-arrow">→</span> <span class="m-real">shared recipe book</span></span></div>
+          <div class="metaphor fragment"><span class="ico">📓</span><span><span class="m-code">Jupyter</span> <span class="m-arrow">→</span> <span class="m-real">the finished cookbook</span></span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ################################################################ -->
+    <!-- ############################ PYTHON ############################ -->
+    <!-- ################################################################ -->
+    <section class="section-cover" data-background-color="#3776AB">
+      <div class="kicker" style="color:#d7e6f5">Part 1 of 3</div>
+      <h1 style="color:#fff">Python</h1>
+      <p class="lead" style="color:#d7e6f5">The recipe, the chef, and the kitchen.</p>
+    </section>
+
+    <!-- The chef -->
+    <section>
+      <span class="tag py">Python · the chef</span>
+      <h3>The interpreter reads your recipe line by line</h3>
+      <div class="cols narrow-left">
+        <p>Different chefs exist — and the <em>same recipe</em> can turn out slightly differently depending on which one cooks it.</p>
+        <div data-widget="pyversion"></div>
+      </div>
+    </section>
+
+    <!-- Anaconda + kitchens -->
+    <section>
+      <span class="tag py">Anaconda · pantry &amp; kitchens</span>
+      <h3>Conda environments are separate kitchens</h3>
+      <div class="cols narrow-left">
+        <div>
+          <p class="fine">Each kitchen can have a different chef (Python version) and its own stocked pantry (packages) — so projects never fight over ingredients.</p>
+          <div class="callout tip" style="font-size:0.72em"><span class="tip-badge">do this once</span>
+            <span class="mono">conda create --name BME2315_S26 python=3.12 numpy pandas scipy matplotlib ipykernel</span></div>
+        </div>
+        <div data-widget="condaenv"></div>
+      </div>
+    </section>
+
+    <!-- Installing packages -->
+    <section>
+      <span class="tag py">import · stocking the pantry</span>
+      <h3>Bring ingredients into your code</h3>
+      <div class="cols">
+        <div>
+          <p class="fine"><code>conda</code> and <code>pip</code> are the two big warehouses. Install into the <b>active</b> kitchen, then <code>import</code> in your recipe.</p>
+          <pre><code class="language-bash">pip install numpy pandas matplotlib</code></pre>
+        </div>
+        <div>
+          <div class="metaphor"><span class="ico">🧂</span><span class="mono" style="font-size:0.8em">import numpy as np</span></div>
+          <p class="fine">"Go to the NumPy warehouse, bring the tools into my pantry, and label them <code>np</code>."</p>
+          <div class="metaphor"><span class="ico">📈</span><span class="mono" style="font-size:0.8em">from matplotlib import pyplot as plt</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIVE: first cell -->
+    <section>
+      <span class="tag py">▶ live · runs in your browser</span>
+      <h3>Your first recipe — try it!</h3>
+      <p class="fine">Edit the code, then hit <b>Run</b> (or <span class="mono">Ctrl/Cmd + Enter</span>). Real Python, running right here.</p>
+      <div class="pycell" data-file="hello.py"><script type="text/python">
+# variables are ingredients you can label and reuse
+name = "chef"
+servings = 4
+print(f"Hello, {name}! Cooking for {servings} tonight.")
+
+# change the numbers and re-run
+print("Double batch:", servings * 2)
+</script></div>
+    </section>
+
+    <!-- LIVE + widget: for loop -->
+    <section>
+      <span class="tag py">for loops · repeat a step</span>
+      <h3>A loop applies the same step over and over</h3>
+      <div class="cols">
+        <div data-widget="forloop"></div>
+        <div class="pycell" data-file="loop.py"><script type="text/python">
+a, b = 0, 1
+for i in range(8):
+    print(a)
+    a, b = b, a + b
+</script></div>
+      </div>
+    </section>
+
+    <!-- GenAI caution -->
+    <section data-background-color="#FBF1D8">
+      <h2 class="bigq">"This dish tastes <em>disgusting</em> — who made it?"</h2>
+      <p style="margin-top:0.8em">"I just followed the recipe ChatGPT gave me… I don't know where I went wrong."</p>
+      <div class="callout warn fragment" style="margin-top:1em"><span class="tip-badge">the point</span>
+        GenAI is a useful sous-chef, but <strong>you</strong> are the head chef. If you can't read the recipe, you can't fix the dish.</div>
+    </section>
+
+    <!-- Tips section header -->
+    <section class="section-cover" data-background-color="#FBF7F0">
+      <div class="kicker">7 habits of good cooks</div>
+      <h1 style="font-size:2.2em">Writing code you can trust</h1>
+    </section>
+
+    <!-- Tip 1 -->
+    <section>
+      <div class="cols narrow-left">
+        <div>
+          <span class="tip-badge">tip 1</span><h3>Run code in chunks</h3>
+          <p class="fine">Break code into small pieces that are easy to run and read. <code>#%%</code> makes a runnable cell inside a normal <code>.py</code> file (needs the Jupyter extension).</p>
+        </div>
+        <div class="pycell" data-file="chunks.py"><script type="text/python">
+#%% cell 1 — set up
+import numpy as np
+data = np.array([2.0, 4.0, 4.0, 4.0, 5.0, 5.0, 7.0, 9.0])
+
+#%% cell 2 — inspect
+print("mean:", data.mean())
+print("std: ", round(data.std(), 3))
+</script></div>
+      </div>
+    </section>
+
+    <!-- Tip 2 pseudocode -->
+    <section>
+      <span class="tip-badge">tip 2</span><h3>Write pseudocode first</h3>
+      <p class="fine">Design in plain English before you code: inputs, outputs, what's computed, which variables, any loops or logic.</p>
+      <div class="cols">
+        <div class="card"><pre style="box-shadow:none"><code># INPUT: list of signal values
+# OUTPUT: indices where signal > threshold
+# for each value:
+#     if value > threshold:
+#         remember its index
+# return the remembered indices</code></pre></div>
+        <div class="callout tip">Pseudocode is the recipe outline. Turning it into Python is just translation.</div>
+      </div>
+    </section>
+
+    <!-- Tip 3 comment -->
+    <section>
+      <span class="tip-badge">tip 3</span><h3>Comment your code (for future-you)</h3>
+      <div class="cols">
+        <div><p class="fine">❌ Not helpful:</p><pre style="box-shadow:none"><code>x = x + 1  # add one to x</code></pre></div>
+        <div><p class="fine">✅ Helpful:</p><pre style="box-shadow:none"><code>peaks += 1  # count another heartbeat</code></pre></div>
+      </div>
+    </section>
+
+    <!-- Tip 4 don't reinvent -->
+    <section>
+      <span class="tag py">▶ live</span> <span class="tip-badge" style="display:inline">tip 4</span>
+      <h3>Don't reinvent the wheel</h3>
+      <p class="fine">Common libraries already solved the hard parts. Use them.</p>
+      <div class="pycell" data-file="libraries.py"><script type="text/python">
+import numpy as np
+
+v = np.array([3.0, 4.0])
+print("length by hand: ", (v[0]**2 + v[1]**2) ** 0.5)
+print("length w/ numpy:", np.linalg.norm(v))
+</script></div>
+    </section>
+
+    <!-- Tip 5 DRY functions -->
+    <section>
+      <span class="tag py">▶ live</span> <span class="tip-badge" style="display:inline">tip 5</span>
+      <h3>Don't repeat yourself — write functions</h3>
+      <p class="fine">If a chunk of code is "a step in a process," make it a function and reuse it.</p>
+      <div class="pycell" data-file="functions.py"><script type="text/python">
+def bmi(mass_kg, height_m):
+    """Body mass index."""
+    return mass_kg / height_m**2
+
+for m, h in [(70, 1.75), (90, 1.80), (55, 1.60)]:
+    print(f"{m} kg, {h} m  ->  BMI {bmi(m, h):.1f}")
+</script></div>
+    </section>
+
+    <!-- Tip 6 read errors -->
+    <section>
+      <span class="tag py">▶ live</span> <span class="tip-badge" style="display:inline">tip 6</span>
+      <h3>Read your error messages</h3>
+      <p class="fine">Run this — the traceback tells you <em>where</em> and <em>why</em>. Then fix line 3 (compare numbers, not a string).</p>
+      <div class="pycell" data-file="errors.py"><script type="text/python">
+def find_above(values, limit):
+    return [v for v in values if v > limit]
+
+print(find_above([3, 8, 15, 20], "10"))   # bug: "10" is a string
+</script></div>
+    </section>
+
+    <!-- Tip 7 test -->
+    <section>
+      <span class="tag py">▶ live</span> <span class="tip-badge" style="display:inline">tip 7</span>
+      <h3>Test your code — check the extremes</h3>
+      <div class="pycell" data-file="tests.py"><script type="text/python">
+def normalize(x, lo, hi):
+    return (x - lo) / (hi - lo)
+
+assert normalize(0, 0, 10) == 0.0     # low extreme
+assert normalize(10, 0, 10) == 1.0    # high extreme
+assert normalize(5, 0, 10) == 0.5     # middle
+print("all tests passed ✅")
+</script></div>
+    </section>
+
+    <!-- ################################################################ -->
+    <!-- ############################ GITHUB ############################ -->
+    <!-- ################################################################ -->
+    <section class="section-cover" data-background-color="#6E40C9">
+      <div class="kicker" style="color:#e2d6f7">Part 2 of 3</div>
+      <h1 style="color:#fff">GitHub</h1>
+      <p class="lead" style="color:#e2d6f7">Sharing recipes with the other restaurants.</p>
+    </section>
+
+    <section>
+      <h2 class="bigq">How do you share a recipe <em>and</em> its history?</h2>
+      <ul style="margin-top:0.8em; font-size:0.85em">
+        <li class="fragment">Tell it face to face? — lost the moment you walk away.</li>
+        <li class="fragment">Hand over a photo? — hard to update or send back.</li>
+        <li class="fragment"><strong>Keep the recipe online, versioned, with notes on every change.</strong> ✅</li>
+      </ul>
+      <p class="fragment fine" style="margin-top:1em">GitHub <b>hosts</b> your code; <b>git</b> is the version-control system that tracks changes.</p>
+    </section>
+
+    <!-- vocabulary -->
+    <section>
+      <span class="tag gh">the five verbs</span>
+      <h3>Contributing to the shared recipe book</h3>
+      <div class="cols">
+        <div>
+          <div class="metaphor"><span class="ico">⬇️</span><span><span class="m-code">clone</span> — get a local copy</span></div>
+          <div class="metaphor"><span class="ico">💾</span><span><span class="m-code">commit</span> — save a change locally</span></div>
+          <div class="metaphor"><span class="ico">⬆️</span><span><span class="m-code">push</span> — send commits to GitHub</span></div>
+        </div>
+        <div>
+          <div class="metaphor"><span class="ico">🔄</span><span><span class="m-code">pull</span> — get others' changes</span></div>
+          <div class="metaphor"><span class="ico">🔀</span><span><span class="m-code">merge</span> — combine changes</span></div>
+          <div class="callout tip" style="font-size:0.7em">Try the interactive version on the next slide →</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE git flow -->
+    <section>
+      <span class="tag gh">interactive · click the buttons</span>
+      <h3>The commit → push → pull loop</h3>
+      <div class="gitwf" data-widget="gitflow"></div>
+    </section>
+
+    <!-- repos -->
+    <section>
+      <span class="tag gh">repositories</span>
+      <h3>Repos are entirely different recipe books</h3>
+      <div class="cols">
+        <div>
+          <div class="chip-row" style="gap:0.6em">
+            <span class="chip" style="font-size:0.8em">📕 Module 1</span>
+            <span class="chip" style="font-size:0.8em">📗 Module 2</span>
+            <span class="chip" style="font-size:0.8em">📘 Module 3</span>
+            <span class="chip" style="font-size:0.8em">📙 Module 4</span>
+          </div>
+        </div>
+        <div class="callout">In this class you'll share <b>one repo per project</b> with your partner.</div>
+      </div>
+    </section>
+
+    <!-- branches interactive -->
+    <section>
+      <span class="tag gh">branches · interactive</span>
+      <h3>Branches = safe places to recipe-test</h3>
+      <p class="fine">Work on your own branch; when the code is <em>done</em>, open a pull request and merge into <span class="mono">main</span>.</p>
+      <div class="gitwf" data-widget="branches"></div>
+    </section>
+
+    <!-- PR flow -->
+    <section>
+      <span class="tag gh">pull requests</span>
+      <h3>A pull request is asking a partner to taste-test</h3>
+      <ol style="font-size:0.85em">
+        <li>Push your finished work to <b>your</b> branch.</li>
+        <li>Open a <b>pull request</b> and explain what it adds.</li>
+        <li>Partner reviews &amp; comments; once approved, <b>merge</b> into <span class="mono">main</span>.</li>
+      </ol>
+      <div class="callout warn">Only merge when code is "done." And <strong>don't delete your personal branch.</strong></div>
+    </section>
+
+    <!-- protocol -->
+    <section data-background-color="#F1ECFB">
+      <h3>The protocol for <em>every</em> coding session</h3>
+      <div class="cols">
+        <div>
+          <div class="metaphor"><span class="ico">1️⃣</span><span><b>pull</b> from remote</span></div>
+          <div class="metaphor"><span class="ico">2️⃣</span><span>open folder & <b>code</b> + save</span></div>
+        </div>
+        <div>
+          <div class="metaphor"><span class="ico">3️⃣</span><span><b>commit</b> + <b>push</b> to remote</span></div>
+          <div class="metaphor"><span class="ico">4️⃣</span><span>when happy, open a <b>pull request</b></span></div>
+        </div>
+      </div>
+      <p class="fragment fine center" style="margin-top:1em">🗣️ …and <strong>talk to your partner</strong> when you're both coding.</p>
+    </section>
+
+    <!-- pitfalls -->
+    <section class="scrollable">
+      <span class="tag gh">watch out</span>
+      <h3>When GitHub gets messy</h3>
+      <table style="font-size:0.6em; width:100%; border-collapse:collapse">
+        <tr style="border-bottom:2px solid var(--line)"><th style="text-align:left;padding:0.4em">Problem</th><th style="text-align:left;padding:0.4em">Advice</th></tr>
+        <tr style="border-bottom:1px solid var(--line)"><td style="padding:0.4em">Same file, same time, two people</td><td style="padding:0.4em">Don't. Split files, or push/pull back and forth. <b>Talk first.</b></td></tr>
+        <tr style="border-bottom:1px solid var(--line)"><td style="padding:0.4em">Two files with the same name</td><td style="padding:0.4em">Put your name in your filenames.</td></tr>
+        <tr style="border-bottom:1px solid var(--line)"><td style="padding:0.4em">Files you don't want tracked</td><td style="padding:0.4em">Add them to <span class="mono">.gitignore</span>.</td></tr>
+        <tr style="border-bottom:1px solid var(--line)"><td style="padding:0.4em">File over 100 MB</td><td style="padding:0.4em"><span class="mono">.gitignore</span> it; share big data via Box.</td></tr>
+        <tr><td style="padding:0.4em">Broke working code, can't get back</td><td style="padding:0.4em">Test in a fresh file / branch; worst case <span class="mono">git reset</span> (ask for help).</td></tr>
+      </table>
+    </section>
+
+    <!-- ################################################################ -->
+    <!-- ########################### JUPYTER ########################### -->
+    <!-- ################################################################ -->
+    <section class="section-cover" data-background-color="#F37726">
+      <div class="kicker" style="color:#fde3d1">Part 3 of 3</div>
+      <h1 style="color:#fff">Jupyter Notebooks</h1>
+      <p class="lead" style="color:#fde3d1">Plating the dish: telling the story of your results.</p>
+    </section>
+
+    <section>
+      <h2 class="bigq">Communicating results is an <em>engineering</em> skill.</h2>
+      <p class="fine" style="margin-top:0.8em">A notebook (<span class="mono">.ipynb</span>) mixes <b>markdown</b>, <b>code</b>, and <b>output</b> — so a reader can step through your analysis like a report.</p>
+    </section>
+
+    <!-- notebook toggle -->
+    <section>
+      <span class="tag jup">interactive · toggle the buttons</span>
+      <h3>Same analysis, two very different notebooks</h3>
+      <div data-widget="notebook"></div>
+    </section>
+
+    <!-- what makes it good -->
+    <section>
+      <span class="tag jup">the rubric, briefly</span>
+      <h3>A high-quality notebook…</h3>
+      <div class="cols">
+        <div>
+          <div class="metaphor"><span class="ico">🗂️</span><span>is an <b>organized report</b> (headers, markdown)</span></div>
+          <div class="metaphor"><span class="ico">📖</span><span><b>tells a story</b>: goal → steps → conclusion</span></div>
+        </div>
+        <div>
+          <div class="metaphor"><span class="ico">📊</span><span><b>visualizes</b> with labeled plots</span></div>
+          <div class="metaphor"><span class="ico">🧹</span><span><b>hides ugly output</b> from debugging</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- markdown -->
+    <section>
+      <span class="tag jup">markdown</span>
+      <h3>Markdown organizes the report</h3>
+      <div class="cols">
+        <div class="card"><pre style="box-shadow:none"><code># Title
+## Section
+**bold**  *italic*  `code`
+- a bullet</code></pre></div>
+        <div class="card">
+          <h4 style="font-family:var(--font-display);margin:0">Title</h4>
+          <h5 style="margin:0.2em 0">Section</h5>
+          <p style="margin:0.2em 0"><b>bold</b> <i>italic</i> <code>code</code></p>
+          <ul style="margin:0"><li>a bullet</li></ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- LIVE plot -->
+    <section>
+      <span class="tag jup">▶ live · matplotlib renders in the slide</span>
+      <h3>Always label your plots</h3>
+      <div class="pycell" data-file="plot.py"><script type="text/python">
+import numpy as np
+import matplotlib.pyplot as plt
+
+t = np.linspace(0, 2, 200)
+signal = np.sin(2*np.pi*3*t) * np.exp(-t)
+
+plt.plot(t, signal, label="damped signal")
+plt.title("Sensor response over time")
+plt.xlabel("time (s)"); plt.ylabel("amplitude (mV)")
+plt.legend()
+</script></div>
+    </section>
+
+    <!-- hide ugly -->
+    <section>
+      <span class="tag jup">clean output</span>
+      <h3>Hide "ugly" output</h3>
+      <div class="cols">
+        <div><p class="fine">❌ Dumps everything:</p><pre style="box-shadow:none"><code>print(dataframe)   # 2000 rows…</code></pre></div>
+        <div><p class="fine">✅ Says what matters:</p><pre style="box-shadow:none"><code>print("Correlation:", round(corr, 3))</code></pre></div>
+      </div>
+      <div class="callout tip">Import helper functions from <span class="mono">.py</span> files so the notebook shows the <em>story</em>, not the plumbing.</div>
+    </section>
+
+    <!-- ============ RECAP ============ -->
+    <section data-background-color="#FBF7F0">
+      <h3>The whole restaurant, one more time</h3>
+      <div class="cols">
+        <div>
+          <div class="metaphor"><span class="ico">🍳</span><span><b>Python</b> — write &amp; run the recipe</span></div>
+          <div class="metaphor"><span class="ico">🌿</span><span><b>GitHub</b> — share &amp; version the recipe book</span></div>
+        </div>
+        <div>
+          <div class="metaphor"><span class="ico">📓</span><span><b>Jupyter</b> — plate &amp; present the dish</span></div>
+          <div class="callout tip" style="font-size:0.72em">Now go make a folder, open VS Code, and cook something. 👩‍🍳</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-cover" data-background-color="#2B2724">
+      <h1 style="color:#FBF7F0; font-size:2.4em">Questions?</h1>
+      <p class="lead" style="color:#C9BFB2">Raise your hand — or stand your name card on its edge. 🙌</p>
+    </section>
+
+  </div>
+</div>
+
+<!-- reveal.js + plugins -->
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/dist/reveal.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/highlight/highlight.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/reveal.js@5.1.0/plugin/notes/notes.js"></script>
+
+<!-- interactive widgets + live python -->
+<script src="js/widgets.js"></script>
+<script src="js/pyodide-cell.js"></script>
+
+<script>
+  Reveal.initialize({
+    hash: true,
+    slideNumber: 'c/t',
+    controls: true,
+    progress: true,
+    transition: 'slide',
+    transitionSpeed: 'fast',
+    width: 1280,
+    height: 720,
+    margin: 0.06,
+    plugins: [ RevealHighlight, RevealNotes ],
+    keyboardCondition: function (e) {
+      // let textareas (live code cells) receive all keystrokes
+      return e.target.tagName !== 'TEXTAREA';
+    }
+  });
+  // (re)initialize widgets/cells that reveal may have cloned or revealed
+  Reveal.on('ready', () => { window.Widgets && Widgets.initAll(); window.PyCell && PyCell.initAll(); });
+</script>
+</body>
+</html>
