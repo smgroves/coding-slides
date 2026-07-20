@@ -1,6 +1,6 @@
 # Intro to Coding — interactive slides
 
-Interactive lecture deck for **BME 2315 · Module 0**, built with
+Interactive intro-to-coding lecture deck, built with
 [reveal.js](https://revealjs.com/). It runs **real Python in the browser**
 via [Pyodide](https://pyodide.org/) — students can edit and run code cells
 live inside the slides, no install and no server required.

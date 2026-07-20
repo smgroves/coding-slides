@@ -55,7 +55,7 @@
   function condaenv(root) {
     const envs = {
       "base":       ["python 3.12", "numpy 2.1", "pandas 2.2", "…everything"],
-      "BME2315_S26":["python 3.12", "numpy 2.1", "pandas 2.2", "scipy", "matplotlib", "ipykernel"],
+      "myclass":    ["python 3.12", "numpy 2.1", "pandas 2.2", "scipy", "matplotlib", "ipykernel"],
       "legacy_proj":["python 3.7", "numpy 1.16", "special-lib 1.0"],
     };
     root.innerHTML = `
@@ -74,7 +74,7 @@
       chips.innerHTML = "";
       envs[name].forEach(p => chips.appendChild(el("span", "chip", p)));
     }
-    show("BME2315_S26");
+    show("myclass");
   }
 
   /* ---------------- 4. git workflow animation ---------------- */
