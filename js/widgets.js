@@ -241,6 +241,27 @@ c=np.corrcoef(np.arange(len(env)),env)[0,1];print(c)</div>
     holder.innerHTML = HI;
   }
 
+  /* ---------------- clickable numbered labels (VS Code / github.com) ---------------- */
+  function labelGroup(group) {
+    const badges = [...group.querySelectorAll(".vs-badge")];
+    const items = [...group.querySelectorAll(".vs-legend .li")];
+    const itemByNum = {};
+    items.forEach(li => { const n = (li.querySelector(".num")?.textContent || "").trim(); if (n) itemByNum[n] = li; });
+    let current = null;
+    function clear() { group.classList.remove("labels-active"); badges.forEach(b => b.classList.remove("on")); items.forEach(i => i.classList.remove("on")); current = null; }
+    function select(n) {
+      if (current === n) { clear(); return; }
+      clear(); group.classList.add("labels-active"); current = n;
+      badges.forEach(b => { if (b.textContent.trim() === n) b.classList.add("on"); });
+      if (itemByNum[n]) itemByNum[n].classList.add("on");
+    }
+    badges.forEach(b => b.addEventListener("click", e => { e.stopPropagation(); select(b.textContent.trim()); }));
+    items.forEach(li => {
+      const n = (li.querySelector(".num")?.textContent || "").trim();
+      if (n) li.addEventListener("click", e => { e.stopPropagation(); select(n); });
+    });
+  }
+
   const REG = { forloop, pyversion, condaenv, gitflow, branches, notebook };
 
   function initAll(root) {
@@ -248,6 +269,10 @@ c=np.corrcoef(np.arange(len(env)),env)[0,1];print(c)</div>
       if (node.dataset.wInit) return;
       const fn = REG[node.dataset.widget];
       if (fn) { node.classList.add("widget"); node.dataset.wInit = "1"; fn(node); }
+    });
+    (root || document).querySelectorAll(".vslabels").forEach(node => {
+      if (node.dataset.lInit) return;
+      node.dataset.lInit = "1"; labelGroup(node);
     });
   }
   window.Widgets = { initAll };

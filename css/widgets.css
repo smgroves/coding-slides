@@ -182,6 +182,17 @@
   font-family:var(--font-mono); font-weight:700; font-size:11px; display:inline-flex; align-items:center; justify-content:center; }
 .vs-legend b { color:var(--ink); } .vs-legend .m { color:var(--muted); }
 
+/* clickable numbered labels */
+.vslabels .vs-badge { cursor:pointer; transition:transform .12s, box-shadow .12s, opacity .12s; }
+.vslabels .vs-badge:hover { transform:scale(1.16); }
+.vslabels .vs-legend .li { cursor:pointer; border-radius:8px; padding:0.15em 0.4em; margin-left:-0.4em;
+  transition:background .12s, opacity .12s; }
+.vslabels .vs-legend .li:hover { background:#EFEAE1; }
+.vslabels.labels-active .vs-badge:not(.on) { opacity:0.32; }
+.vslabels.labels-active .vs-legend .li:not(.on) { opacity:0.4; }
+.vslabels .vs-badge.on { transform:scale(1.3); box-shadow:0 0 0 3px #fff, 0 0 0 6px rgba(43,39,36,0.22), 0 3px 10px rgba(0,0,0,0.4); }
+.vslabels .vs-legend .li.on { background:#EFEAE1; }
+
 /* VS Code welcome screen */
 .vs-welcome { background:#1e1e1e; color:#cccccc; min-height:230px; padding:26px 34px; }
 .vs-welcome h4 { color:#fff; font-family:var(--font-body); font-weight:600; font-size:1.1em; margin:0 0 0.1em; }
