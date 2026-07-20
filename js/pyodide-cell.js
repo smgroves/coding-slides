@@ -111,17 +111,33 @@ finally:
     const original = src;
     const fname = el.dataset.file || "practice.py";
     const rows = Math.min(16, Math.max(3, src.split("\n").length));
+    const skin = el.dataset.skin === "vscode";
+    if (skin) el.classList.add("vc");
 
-    el.innerHTML = `
-      <div class="pycell-bar">
-        <span class="dots"><i></i><i></i><i></i></span>
-        <span class="fname">${esc(fname)}</span>
-        <button class="reset" title="Reset code">reset</button>
-        <button class="run">▶ Run</button>
-      </div>
-      <textarea class="code" spellcheck="false" rows="${rows}"></textarea>
-      <div class="out" hidden><div class="out-inner"></div></div>
-      <div class="status" hidden></div>`;
+    if (skin) {
+      el.innerHTML = `
+        <div class="vc-titlebar"><i></i><i></i><i></i><span class="vc-title">${esc(fname)} — myclass-folder</span></div>
+        <div class="vc-tabbar">
+          <span class="vc-tab">📄 ${esc(fname)}</span>
+          <button class="reset" title="Reset code">reset</button>
+          <button class="run">▶ Run</button>
+        </div>
+        <textarea class="code" spellcheck="false" rows="${rows}"></textarea>
+        <div class="status" hidden></div>
+        <div class="out" hidden><div class="vc-termhead">Terminal</div><div class="out-inner"></div></div>
+        <div class="vc-statusbar"><span>⌥ main</span><span class="right">Python 3.12 ('myclass': conda)  ⚙</span></div>`;
+    } else {
+      el.innerHTML = `
+        <div class="pycell-bar">
+          <span class="dots"><i></i><i></i><i></i></span>
+          <span class="fname">${esc(fname)}</span>
+          <button class="reset" title="Reset code">reset</button>
+          <button class="run">▶ Run</button>
+        </div>
+        <textarea class="code" spellcheck="false" rows="${rows}"></textarea>
+        <div class="out" hidden><div class="out-inner"></div></div>
+        <div class="status" hidden></div>`;
+    }
 
     const ta = el.querySelector("textarea.code");
     const runBtn = el.querySelector(".run");
@@ -165,9 +181,10 @@ finally:
         status(null);
         outBox.hidden = false;
         let html = "";
+        if (skin) html += `<span class="vc-prompt">(myclass) $ python ${esc(fname)}</span>\n`;
         if (out && out.trim()) html += `<span>${esc(out)}</span>`;
         if (err) html += `<span class="err">${esc(err)}</span>`;
-        if (!out.trim() && !err && !img) html += `<span style="color:#6d655d">— no output —</span>`;
+        if (!out.trim() && !err && !img && !skin) html += `<span style="color:#6d655d">— no output —</span>`;
         outInner.innerHTML = html;
         if (img) {
           const im = document.createElement("img");

@@ -71,6 +71,30 @@
 }
 @keyframes spin { to { transform: rotate(360deg);} }
 
+/* ---------- VS Code-skinned live cell ---------- */
+.pycell.vc { background:#1e1e1e; }
+.pycell.vc .vc-titlebar { background:#323233; height:30px; display:flex; align-items:center; gap:7px; padding:0 11px; }
+.pycell.vc .vc-titlebar i { width:11px; height:11px; border-radius:50%; display:inline-block; }
+.pycell.vc .vc-titlebar i:nth-child(1){ background:#ff5f56; } .pycell.vc .vc-titlebar i:nth-child(2){ background:#ffbd2e; } .pycell.vc .vc-titlebar i:nth-child(3){ background:#27c93f; }
+.pycell.vc .vc-title { color:#b9b9b9; font-size:12px; margin:0 auto; }
+.pycell.vc .vc-tabbar { background:#2d2d2d; display:flex; align-items:center; height:36px; padding-right:12px; }
+.pycell.vc .vc-tab { background:#1e1e1e; color:#fff; padding:0 16px; height:100%; display:flex; align-items:center; font-size:13px; }
+.pycell.vc .vc-tabbar .reset { margin-left:auto; background:transparent; border:1px solid #4a4a4a; color:#bbb;
+  padding:5px 10px; border-radius:6px; cursor:pointer; font-size:12px; font-family:var(--font-mono); }
+.pycell.vc .vc-tabbar .reset:hover { border-color:#7a7a7a; color:#fff; }
+.pycell.vc .vc-tabbar .run { margin-left:10px; background:var(--teal); color:#fff; border:none;
+  padding:6px 15px; border-radius:6px; cursor:pointer; font-family:var(--font-mono); font-size:13px; font-weight:600; }
+.pycell.vc .vc-tabbar .run:hover { background:#25695a; }
+.pycell.vc .vc-tabbar .run[disabled] { opacity:.55; cursor:wait; }
+.pycell.vc textarea.code { background:#1e1e1e; color:#d4d4d4; }
+.pycell.vc .out { background:#181818; }
+.pycell.vc .vc-termhead { color:#9d9d9d; font-size:11px; letter-spacing:0.09em; text-transform:uppercase;
+  padding:7px 16px 2px; border-top:1px solid #333; }
+.pycell.vc .vc-prompt { color:#3fc7a8; }
+.pycell.vc .vc-statusbar { background:#3776AB; color:#fff; height:24px; display:flex; align-items:center;
+  font-size:11px; padding:0 12px; }
+.pycell.vc .vc-statusbar .right { margin-left:auto; }
+
 /* ---------- generic slider widget ---------- */
 .widget {
   background: var(--card); border: 1px solid var(--line);
