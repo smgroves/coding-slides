@@ -159,6 +159,97 @@
       </div>
     </section>
 
+    <!-- VS Code welcome / open folder -->
+    <section>
+      <span class="tag py">the restaurant · getting in the door</span>
+      <h3>Always open your <em>class folder</em> first</h3>
+      <div class="cols narrow-left">
+        <div>
+          <p class="fine">When VS Code opens to the Welcome screen, choose <b>Open Folder</b> and pick the folder you made for this class. Everything you do lives inside it.</p>
+          <div class="callout tip" style="font-size:0.72em"><span class="tip-badge">tip</span>
+            <span class="mono">File &gt; New Window</span> reopens this Welcome page any time.</div>
+        </div>
+        <div class="vscode">
+          <div class="vs-titlebar"><i></i><i></i><i></i><span class="t">Welcome — Visual Studio Code</span></div>
+          <div class="vs-welcome">
+            <h4>Visual Studio Code</h4>
+            <div class="sub">Editing evolved</div>
+            <div class="grp">Start</div>
+            <div class="item">📄 New File…</div>
+            <div class="item">📂 Open File…</div>
+            <div class="item hi">📁 Open Folder…  ← start here!</div>
+            <div class="grp">Recent</div>
+            <div class="rec">myclass-folder &nbsp;~/Documents</div>
+            <div class="rec">(your recently opened folders appear here)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- VS Code IDE annotated tour -->
+    <section>
+      <span class="tag py">the restaurant · where everything lives</span>
+      <h3>The VS Code window, labeled</h3>
+      <div class="cols">
+        <div class="vscode">
+          <!-- callout badges -->
+          <span class="vs-badge" style="left:9px;  top:40px;">1</span>
+          <span class="vs-badge" style="left:150px; top:205px;">2</span>
+          <span class="vs-badge" style="left:430px; top:205px;">3</span>
+          <span class="vs-badge" style="left:712px; top:36px;">4</span>
+          <span class="vs-badge" style="left:470px; top:322px;">5</span>
+          <span class="vs-badge" style="left:9px;  top:300px;">6</span>
+          <span class="vs-badge" style="left:600px; top:392px;">7</span>
+
+          <div class="vs-titlebar"><i></i><i></i><i></i><span class="t">analysis.py — myclass-folder</span></div>
+          <div class="vs-body">
+            <div class="vs-activity">
+              <span class="on">🗂️</span><span>🔍</span><span>🔀</span><span>▶️</span>
+              <span class="spacer"></span><span>🧩</span>
+            </div>
+            <div class="vs-sidebar">
+              <div class="sbt">Explorer</div>
+              <div class="row fold">▾ MYCLASS-FOLDER</div>
+              <div class="row fold ind">▾ Module_0</div>
+              <div class="row ind2 act">📄 analysis.py</div>
+              <div class="row ind2">📊 emg.csv</div>
+              <div class="row ind">📄 README.md</div>
+            </div>
+            <div class="vs-main">
+              <div class="vs-tabs"><span class="tab">📄 analysis.py <span class="dot">●</span></span><span class="run">▶</span></div>
+              <div class="vs-editor">
+                <div class="ln"><span class="g">1</span><span class="c"><span class="k">import</span> numpy <span class="k">as</span> np</span></div>
+                <div class="ln"><span class="g">2</span><span class="c"></span></div>
+                <div class="ln"><span class="g">3</span><span class="c"><span class="k">def</span> <span class="f">rms</span>(signal):</span></div>
+                <div class="ln"><span class="g">4</span><span class="c">    <span class="k">return</span> np.<span class="b">sqrt</span>(np.<span class="b">mean</span>(signal**<span class="n">2</span>))</span></div>
+                <div class="ln"><span class="g">5</span><span class="c"></span></div>
+                <div class="ln"><span class="g">6</span><span class="c">data = np.<span class="b">loadtxt</span>(<span class="s">"emg.csv"</span>)</span></div>
+                <div class="ln"><span class="g">7</span><span class="c"><span class="b">print</span>(<span class="s">"RMS:"</span>, <span class="f">rms</span>(data))</span></div>
+              </div>
+              <div class="vs-terminal">
+                <div class="tt">Terminal</div>
+                <div><span class="env">(myclass)</span> $ python analysis.py</div>
+                <div>RMS: 0.42</div>
+              </div>
+            </div>
+          </div>
+          <div class="vs-status"><span>⌥ main</span><span>0 ⚠  0 ✕</span><span class="right">Python 3.12 ('myclass': conda)  ⚙</span></div>
+        </div>
+
+        <div class="vs-legend" style="flex:0 0 33%">
+          <div class="li"><span class="num">1</span><span><b>Activity bar</b> <span class="m">— switch between views</span></span></div>
+          <div class="li"><span class="num">2</span><span><b>File Explorer</b> <span class="m">— your class folder &amp; files</span></span></div>
+          <div class="li"><span class="num">3</span><span><b>Editor</b> <span class="m">— write your recipe (.py)</span></span></div>
+          <div class="li"><span class="num">4</span><span><b>▶ Run</b> <span class="m">— cook the whole file</span></span></div>
+          <div class="li"><span class="num">5</span><span><b>Terminal</b> <span class="m">— the order counter; type commands here</span></span></div>
+          <div class="li"><span class="num">6</span><span><b>Extensions</b> <span class="m">— add Python &amp; Jupyter</span></span></div>
+          <div class="li"><span class="num">7</span><span><b>Python version / env</b> <span class="m">— which chef &amp; kitchen</span></span></div>
+          <div class="callout tip" style="font-size:0.82em; margin-top:0.6em"><span class="tip-badge">command palette</span>
+            <span class="mono">Cmd/Ctrl + Shift + P</span> runs any command — including "Python: Select Interpreter".</div>
+        </div>
+      </div>
+    </section>
+
     <!-- Anaconda + kitchens -->
     <section>
       <span class="tag py">the kitchen</span>

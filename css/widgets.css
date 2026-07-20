@@ -106,6 +106,67 @@
 .toggle-row button.active { background: var(--accent); color:#fff; border-color: var(--accent); }
 
 /* ---------- git workflow ---------- */
+/* ---------- VS Code window mockup ---------- */
+.vscode {
+  width: 760px; max-width: 100%;
+  border-radius: 10px; overflow: hidden; position: relative;
+  font-family: var(--font-mono); font-size: 13px; line-height: 1.5;
+  background: #1e1e1e; border: 1px solid #0c0c0c;
+  box-shadow: 0 12px 34px rgba(0,0,0,0.28); text-align: left;
+  margin: 0 auto;
+}
+.vs-titlebar { background:#323233; height:30px; display:flex; align-items:center; gap:7px; padding:0 11px; }
+.vs-titlebar i { width:11px; height:11px; border-radius:50%; display:inline-block; }
+.vs-titlebar i:nth-child(1){ background:#ff5f56; } .vs-titlebar i:nth-child(2){ background:#ffbd2e; } .vs-titlebar i:nth-child(3){ background:#27c93f; }
+.vs-titlebar .t { color:#b9b9b9; font-size:12px; margin:0 auto; }
+.vs-body { display:flex; height: 336px; }
+.vs-activity { width:46px; background:#333333; display:flex; flex-direction:column; align-items:center; gap:20px; padding:12px 0; font-size:20px; color:#858585; }
+.vs-activity .on { color:#fff; border-left:2px solid #fff; padding-left:0; margin-left:-2px; }
+.vs-activity .spacer { flex:1; }
+.vs-sidebar { width:186px; background:#252526; color:#cfcfcf; padding:8px 4px; }
+.vs-sidebar .sbt { color:#9d9d9d; font-size:10px; letter-spacing:0.09em; text-transform:uppercase; padding:4px 8px; }
+.vs-sidebar .row { padding:2px 8px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; font-size:12.5px; }
+.vs-sidebar .row.fold { color:#e8e8e8; } .vs-sidebar .ind { padding-left:22px; } .vs-sidebar .ind2 { padding-left:36px; }
+.vs-sidebar .act { background:#37373d; }
+.vs-main { flex:1; display:flex; flex-direction:column; min-width:0; }
+.vs-tabs { background:#2d2d2d; display:flex; align-items:center; height:34px; }
+.vs-tabs .tab { background:#1e1e1e; color:#fff; padding:0 14px; height:100%; display:flex; align-items:center; font-size:12px; }
+.vs-tabs .tab .dot { color:#e8ab53; margin-left:8px; }
+.vs-tabs .run { margin-left:auto; margin-right:14px; color:#3fc7a8; font-size:16px; }
+.vs-editor { background:#1e1e1e; flex:1; padding:8px 0; color:#d4d4d4; overflow:hidden; }
+.vs-editor .ln { display:flex; }
+.vs-editor .g { width:36px; flex:0 0 36px; text-align:right; color:#6e7681; padding-right:14px; user-select:none; }
+.vs-editor .c { white-space:pre; }
+.vs-editor .k { color:#569cd6; } .vs-editor .s { color:#ce9178; } .vs-editor .f { color:#dcdcaa; }
+.vs-editor .cm { color:#6a9955; } .vs-editor .n { color:#b5cea8; } .vs-editor .b { color:#4ec9b0; }
+.vs-terminal { height:118px; background:#181818; border-top:1px solid #3a3a3a; color:#cccccc; padding:6px 12px; font-size:12px; }
+.vs-terminal .tt { color:#9d9d9d; font-size:10px; letter-spacing:0.09em; text-transform:uppercase; border-bottom:1px solid #333; padding-bottom:4px; margin-bottom:6px; }
+.vs-terminal .env { color:#3fc7a8; }
+.vs-status { background:#3776AB; color:#fff; height:24px; display:flex; align-items:center; font-size:11px; padding:0 12px; gap:16px; }
+.vs-status .right { margin-left:auto; }
+
+/* numbered callout badges pinned to regions */
+.vs-badge {
+  position:absolute; width:27px; height:27px; border-radius:50%;
+  background:var(--accent); color:#fff; font-family:var(--font-mono); font-weight:700; font-size:14px;
+  display:flex; align-items:center; justify-content:center; z-index:6;
+  border:2px solid #fff; box-shadow:0 2px 9px rgba(0,0,0,0.45);
+}
+.vs-legend { font-size:0.62em; }
+.vs-legend .li { display:flex; gap:0.55em; align-items:baseline; margin:0.42em 0; }
+.vs-legend .num { flex:0 0 auto; width:22px; height:22px; border-radius:50%; background:var(--accent); color:#fff;
+  font-family:var(--font-mono); font-weight:700; font-size:11px; display:inline-flex; align-items:center; justify-content:center; }
+.vs-legend b { color:var(--ink); } .vs-legend .m { color:var(--muted); }
+
+/* VS Code welcome screen */
+.vs-welcome { background:#1e1e1e; color:#cccccc; min-height:230px; padding:26px 34px; }
+.vs-welcome h4 { color:#fff; font-family:var(--font-body); font-weight:600; font-size:1.1em; margin:0 0 0.1em; }
+.vs-welcome .sub { color:#8a8a8a; font-size:0.8em; margin-bottom:1.1em; }
+.vs-welcome .grp { color:#9d9d9d; font-size:0.72em; text-transform:uppercase; letter-spacing:0.08em; margin:0.8em 0 0.3em; }
+.vs-welcome .item { color:#4aa3e0; font-size:0.92em; padding:2px 0; }
+.vs-welcome .item.hi { background:var(--accent); color:#fff; display:inline-block; padding:4px 12px; border-radius:6px; font-weight:600; }
+.vs-welcome .rec { color:#777; font-size:0.85em; }
+
 /* ---------- restaurant big-picture diagram ---------- */
 .restaurant { text-align:center; }
 .restaurant svg { max-width: 960px; width:100%; height:auto; display:block; margin:0.2em auto 0; }
